@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
+import HeroBanner from "@/components/HeroBanner";
 import { getGuide } from "@/lib/content";
 
 const FILE = "bto-moving";
@@ -14,5 +15,17 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
-  return <PageLayout content={getGuide(FILE)} />;
+  return (
+    <PageLayout
+      content={getGuide(FILE)}
+      hero={
+        <HeroBanner
+          src="/images/guides/bto-hdb-moving.webp"
+          alt="BTO HDB moving in Singapore"
+          width={800}
+          height={800}
+        />
+      }
+    />
+  );
 }
