@@ -82,6 +82,20 @@ async function main() {
     else failures.push(`${probe} (catch-all) :: ${result.detail}`);
   }
 
+  // 4. Every unique destination must itself serve 200, not redirect. This
+  // is what catches a self-redirect: e.g. an old URL that (once its slash
+  // is stripped) is textually identical to its own destination, such as
+  // /packing/ -> /packing, must not produce a rule for the bare /packing
+  // path pointing at itself.
+  const destinations = new Set(
+    rows.map((row) => (row.new_url === "/" ? "/" : row.new_url.replace(/\/$/, "")))
+  );
+  for (const destination of destinations) {
+    const result = await check(destination, { type: "ok" });
+    if (result.ok) pass++;
+    else failures.push(`${destination} (destination page) :: ${result.detail}`);
+  }
+
   const total = pass + failures.length;
   console.log(`Redirect test against ${BASE_URL}: ${pass}/${total} checks passed.`);
   if (failures.length) {

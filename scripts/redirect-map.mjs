@@ -91,6 +91,7 @@ export function buildRedirectRules(csvPath = DEFAULT_CSV_PATH) {
   const rules = [];
 
   const addRule = (source, destination) => {
+    if (source === destination) return; // would just redirect a page to itself
     if (seen.has(source)) return;
     seen.add(source);
     rules.push({ source, destination });

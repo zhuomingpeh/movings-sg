@@ -1,10 +1,9 @@
 ---
 title: "Moving Guides Singapore | Moving Solutions"
-description: "Guides on moving costs, storage options, lorry sizes, BTO and condo moves, and moving checklists in Singapore."
+description: "Guides on moving costs, storage options, lorry sizes, BTO and condo moves, and a moving checklist for Singapore."
 slug: "/guides"
 h1: "Moving Guides"
 ---
 
-[STUB — Phase 3 content pending]
-
-Index page listing all guide posts.
+Practical guides for planning a move in Singapore, from working out
+lorry size to spotting hidden fees before you book.
