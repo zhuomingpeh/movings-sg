@@ -15,19 +15,59 @@ export type Frontmatter = {
   [key: string]: unknown;
 };
 
+export type Faq = { question: string; answer: string };
+
 export type ParsedContent = {
   frontmatter: Frontmatter;
   html: string;
   /** filename without the .md extension */
   file: string;
+  /** FAQs found under a "## FAQ" heading, for FAQPage schema. Empty if the
+   * page has no FAQ section. */
+  faqs: Faq[];
 };
+
+/** Strips the markdown formatting we actually use (links, bold, code) down
+ * to plain text, for use in JSON-LD where markup doesn't belong. */
+function markdownInlineToText(md: string): string {
+  return md
+    .replace(/\[(.*?)\]\(.*?\)/g, "$1")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/`(.*?)`/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Pulls Q/A pairs out of a "## FAQ" section written as `**Question?**`
+ * followed by an answer paragraph, which is the convention every FAQ
+ * section on this site follows. Returns [] if there's no FAQ heading. */
+export function extractFaqs(markdown: string): Faq[] {
+  const section = markdown.match(/##\s*FAQ\b([\s\S]*?)(?=\n##\s|$)/i);
+  if (!section) return [];
+
+  const faqs: Faq[] = [];
+  const re = /\*\*(.+?\?)\*\*\s*\n([\s\S]*?)(?=\n\*\*.+?\?\*\*|$)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(section[1]))) {
+    faqs.push({
+      question: markdownInlineToText(m[1]),
+      answer: markdownInlineToText(m[2]),
+    });
+  }
+  return faqs;
+}
 
 function readOne(type: ContentType, file: string): ParsedContent {
   const filePath = path.join(CONTENT_DIR, type, `${file}.md`);
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
   const html = marked.parse(content, { async: false }) as string;
-  return { frontmatter: data as Frontmatter, html, file };
+  return {
+    frontmatter: data as Frontmatter,
+    html,
+    file,
+    faqs: extractFaqs(content),
+  };
 }
 
 /** Load one page from /content/pages by its filename (no extension). */

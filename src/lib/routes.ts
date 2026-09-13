@@ -81,3 +81,43 @@ export const ROUTES: RouteEntry[] = [
 
 // /thank-you is intentionally excluded — it's a noindex conversion page
 // (added in Phase 4), not one of the 24 indexable routes.
+
+// Pages that describe an actual bookable service, for Service schema.
+// Deliberately excludes home, pricing, contact, about, the guides index
+// and individual guides, and the movers directory — none of those are a
+// service in themselves.
+const SERVICE_PATHS = new Set([
+  "/storage",
+  "/house-moving",
+  "/office-moving",
+  "/packing",
+  "/no-lift-access-movers",
+  "/manpower-only-movers",
+  "/midnight-movers",
+  "/same-day-movers",
+  "/vendor-gov",
+  "/specialist-moving",
+  "/international-moving",
+  "/disposal",
+]);
+
+export function isServicePath(path: string): boolean {
+  return SERVICE_PATHS.has(path);
+}
+
+/** Home > [ancestor] > current page, using labels from ROUTES. Falls back
+ * to the raw slug segment if a path isn't in ROUTES (shouldn't happen for
+ * our own pages, but better than crashing). */
+export function getBreadcrumbs(path: string): { name: string; path: string }[] {
+  const crumbs: { name: string; path: string }[] = [{ name: "Home", path: "/" }];
+  if (path === "/") return crumbs;
+
+  const segments = path.split("/").filter(Boolean);
+  let acc = "";
+  for (const segment of segments) {
+    acc += `/${segment}`;
+    const match = ROUTES.find((r) => r.path === acc);
+    crumbs.push({ name: match?.label ?? segment, path: acc });
+  }
+  return crumbs;
+}

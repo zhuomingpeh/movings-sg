@@ -16,9 +16,15 @@ export const BUSINESS = {
     postalCode: "737855",
     country: "SG",
   },
-  // TODO(Ming): confirm exact opening hours and geo coordinates for schema.
+  // Geocoded from the address via Google Maps (building-level accuracy).
+  // TODO(Ming): confirm this is precise enough, and supply opening hours
+  // (left out of the schema entirely below rather than guessed, since a
+  // wrong "open now" is worse than no hours at all).
+  geo: { latitude: 1.4365555, longitude: 103.8060065 },
   gbpUrl: `${SITE_URL}/?utm_source=google&utm_medium=organic&utm_campaign=gbp`,
 } as const;
+
+export const GA_MEASUREMENT_ID = "G-9H77FRG0MM";
 
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${BUSINESS.whatsappNumber}`;
