@@ -1,11 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 :root {
-  --background: #faf8f3;
-  --foreground: #262a25;
-  --orange: #bc431c;
-  --line: #dddcd3;
-  --muted: #65695f;
+  --background: #f7faff;
+  --foreground: #172c48;
+  --accent: #145bb9;
+  --line: #d6e2f0;
+  --muted: #536780;
 }
 @theme inline {
   --color-background: var(--background);
@@ -22,7 +22,7 @@ body {
   box-sizing: border-box;
 }
 ::selection {
-  background: #f2c5a6;
+  background: #c7e1ff;
 }
 a,
 button {
@@ -31,7 +31,7 @@ button {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #bc431c;
+  outline: 3px solid #145bb9;
   outline-offset: 5px;
 }
 .shell {
@@ -39,7 +39,7 @@ summary:focus-visible {
   margin-inline: auto;
 }
 .site-header {
-  background: #faf8f3;
+  background: #f7faff;
   border-bottom: 1px solid var(--line);
   position: relative;
   z-index: 10;
@@ -61,7 +61,7 @@ summary:focus-visible {
   line-height: 1;
 }
 .brand-icon {
-  background: var(--orange);
+  background: var(--accent);
   color: white;
   width: 42px;
   height: 44px;
@@ -84,7 +84,7 @@ summary:focus-visible {
 }
 .desktop-nav a:hover,
 .text-link:hover {
-  color: var(--orange);
+  color: var(--accent);
 }
 .header-actions {
   display: flex;
@@ -107,18 +107,18 @@ summary:focus-visible {
     transform 0.2s;
 }
 .button-primary {
-  background: var(--orange);
+  background: var(--accent);
   color: white;
 }
 .button-primary:hover {
-  background: #983619;
+  background: #10488f;
   transform: translateY(-2px);
 }
 .button-secondary {
-  border: 1px solid #bbbdb1;
+  border: 1px solid #b9cce3;
 }
 .button-secondary:hover {
-  background: #edece4;
+  background: #e7f1ff;
 }
 .header-quote {
   padding: 13px 19px;
@@ -153,7 +153,7 @@ summary:focus-visible {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--accent);
   margin-right: 7px;
 }
 .hero-copy h1 {
@@ -166,7 +166,7 @@ summary:focus-visible {
 .hero-copy h1 em {
   font-family: Georgia, serif;
   font-weight: 400;
-  color: var(--orange);
+  color: var(--accent);
 }
 .hero-description {
   max-width: 430px;
@@ -192,7 +192,7 @@ summary:focus-visible {
   min-width: 0;
   border-radius: 7px;
   overflow: hidden;
-  background: #d4d6c9;
+  background: #d6e4f5;
   align-self: stretch;
   min-height: 480px;
 }
@@ -207,7 +207,7 @@ summary:focus-visible {
   content: "";
   position: absolute;
   inset: 35% 0 0;
-  background: linear-gradient(transparent, #172119c9);
+  background: linear-gradient(transparent, #102749cc);
 }
 .photo-caption {
   position: absolute;
@@ -234,14 +234,14 @@ summary:focus-visible {
   display: flex;
   justify-content: space-between;
   z-index: 1;
-  background: #faf8f3ed;
+  background: #f7faffed;
   padding: 13px 16px;
   font-size: 11px;
   border-radius: 3px;
 }
 .service-strip {
-  background: #29362d;
-  color: #f8f8ed;
+  background: #113766;
+  color: #f5f9ff;
 }
 .service-strip .shell {
   display: flex;
@@ -253,7 +253,7 @@ summary:focus-visible {
 }
 .service-strip span:last-child {
   font-size: 28px;
-  color: #d9d3ac;
+  color: #a9d4ff;
 }
 .home-section {
   padding-block: 90px;
@@ -286,17 +286,17 @@ summary:focus-visible {
   border: 1px solid var(--line);
   border-radius: 6px;
   overflow: hidden;
-  background: #fffefa;
+  background: #ffffff;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
 }
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 14px 30px #26312712;
+  box-shadow: 0 14px 30px #123c6812;
 }
 .service-art {
-  background: #efeee7;
+  background: #edf4fc;
   aspect-ratio: 1.12;
   overflow: hidden;
 }
@@ -313,7 +313,7 @@ summary:focus-visible {
 }
 .service-number {
   font-size: 10px;
-  color: var(--orange);
+  color: var(--accent);
   letter-spacing: 1px;
 }
 .service-card h3 {
@@ -350,11 +350,11 @@ summary:focus-visible {
   color: var(--muted);
 }
 .specialist-links a {
-  border-bottom: 1px solid #bcbdb1;
+  border-bottom: 1px solid #b6cbe4;
   padding-bottom: 4px;
 }
 .process-section {
-  background: #eeeee5;
+  background: #eaf2fc;
   border-block: 1px solid var(--line);
 }
 .process-grid {
@@ -365,9 +365,9 @@ summary:focus-visible {
 }
 .step-number {
   display: block;
-  border-bottom: 1px solid #cacdc0;
+  border-bottom: 1px solid #c5d8ed;
   padding-bottom: 22px;
-  color: var(--orange);
+  color: var(--accent);
   font-family: Georgia, serif;
   font-style: italic;
   font-size: 38px;
@@ -408,7 +408,7 @@ summary:focus-visible {
 .story-section figure {
   border-radius: 6px;
   overflow: hidden;
-  background: #e6e4d8;
+  background: #e6effb;
 }
 .story-section figure > img {
   width: 100%;
@@ -427,7 +427,7 @@ summary:focus-visible {
 }
 .story-note > span {
   font-size: 70px;
-  color: var(--orange);
+  color: var(--accent);
 }
 .story-note p {
   font-size: 27px;
@@ -465,8 +465,8 @@ summary:focus-visible {
   object-fit: contain;
 }
 .quote-panel {
-  background: #29362d;
-  color: #fcfaf3;
+  background: #113766;
+  color: #f8fbff;
   border-radius: 7px;
   padding: 58px 65px;
   display: flex;
@@ -476,28 +476,28 @@ summary:focus-visible {
   position: relative;
 }
 .quote-panel .eyebrow {
-  color: #ddcfa9;
+  color: #b8dcff;
 }
 .quote-panel h2 {
   font-size: clamp(37px, 4vw, 56px);
 }
 .quote-panel p:not(.eyebrow) {
-  color: #c9d0c5;
+  color: #c5d9f0;
   font-size: 14px;
   line-height: 1.8;
   margin-top: 20px;
 }
 .button-light {
-  background: #f3ead5;
-  color: #27362b;
+  background: #e4f1ff;
+  color: #123660;
   white-space: nowrap;
 }
 .button-light:hover {
   background: white;
 }
 .site-footer {
-  background: #202b24;
-  color: #e1e5dc;
+  background: #0d2544;
+  color: #dce9f9;
 }
 .site-footer h2 {
   letter-spacing: 1px;
@@ -511,8 +511,8 @@ summary:focus-visible {
   padding-block: 50px;
 }
 .prose {
-  --tw-prose-links: #a43d1b;
-  --tw-prose-headings: #263027;
+  --tw-prose-links: #145bb9;
+  --tw-prose-headings: #172c48;
 }
 .prose table {
   display: block;
@@ -581,7 +581,7 @@ article h1 {
     position: absolute;
     right: 24px;
     top: 78px;
-    background: #faf8f3;
+    background: #f7faff;
     border: 1px solid var(--line);
     box-shadow: 0 15px 30px #0001;
     width: 220px;
@@ -734,5 +734,60 @@ article h1 {
   *:after {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+}
+
+.brand-logo {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.work-gallery figure {
+  background: #eaf2fc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.work-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+.work-gallery figcaption {
+  padding: 18px;
+  font-size: 13px;
+  color: #354f71;
+}
+.service-photo {
+  margin-top: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.service-photo img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+}
+.service-photo figcaption {
+  font-size: 12px;
+  padding: 12px;
+  background: #eaf2fc;
+  color: #354f71;
+}
+@media (max-width: 600px) {
+  .work-gallery {
+    grid-template-columns: 1fr;
+  }
+  .work-gallery img {
+    height: 300px;
+  }
+}
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 140px;
   }
 }

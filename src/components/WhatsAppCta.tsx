@@ -19,10 +19,7 @@ export default function WhatsAppCta({ message, className, children }: Props) {
       target="_blank"
       rel="noopener noreferrer"
       data-analytics-event="whatsapp_click"
-      className={
-        className ??
-        "inline-block rounded-md bg-green-600 px-5 py-3 font-semibold text-white hover:bg-green-700"
-      }
+      className={className ?? "button-primary"}
     >
       {children ?? "WhatsApp Us for a Quote"}
     </a>

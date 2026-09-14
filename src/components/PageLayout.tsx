@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import WhatsAppCta from "./WhatsAppCta";
 import JsonLd from "./JsonLd";
@@ -9,6 +10,42 @@ import {
   localBusinessSchema,
   serviceSchema,
 } from "@/lib/schema";
+
+const servicePhotos: Record<
+  string,
+  { src: string; alt: string; width: number; height: number }
+> = {
+  "/house-moving": {
+    src: "/images/library/1167.webp",
+    alt: "Furniture protected for a home move",
+    width: 1080,
+    height: 1080,
+  },
+  "/packing": {
+    src: "/images/library/1158.webp",
+    alt: "Cartons and packing materials prepared for a home move",
+    width: 1080,
+    height: 1080,
+  },
+  "/office-moving": {
+    src: "/images/library/1190.webp",
+    alt: "Labelled cartons ready for an office move",
+    width: 1080,
+    height: 1080,
+  },
+  "/storage": {
+    src: "/images/library/1013.webp",
+    alt: "Packed furniture and belongings ready for transport",
+    width: 2240,
+    height: 1260,
+  },
+  "/manpower-only-movers": {
+    src: "/images/library/1183.webp",
+    alt: "Moving crew handling items at a truck",
+    width: 1080,
+    height: 1080,
+  },
+};
 
 type Props = {
   content: ParsedContent;
@@ -32,6 +69,7 @@ export default function PageLayout({ content, children, hero }: Props) {
   const path = content.frontmatter.slug;
   const breadcrumbs = getBreadcrumbs(path);
   const isHome = path === "/";
+  const photo = servicePhotos[path];
 
   return (
     <>
@@ -48,7 +86,9 @@ export default function PageLayout({ content, children, hero }: Props) {
             })}
           />
         )}
-        {content.faqs.length > 0 && <JsonLd data={faqPageSchema(content.faqs)} />}
+        {content.faqs.length > 0 && (
+          <JsonLd data={faqPageSchema(content.faqs)} />
+        )}
 
         {!isHome && (
           <nav aria-label="Breadcrumb" className="mb-6 text-sm text-black/60">
@@ -70,13 +110,21 @@ export default function PageLayout({ content, children, hero }: Props) {
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {content.frontmatter.h1}
         </h1>
+        {photo && !hero && (
+          <figure className="service-photo">
+            <Image {...photo} sizes="(max-width:768px) 95vw, 736px" />
+            <figcaption>{photo.alt}</figcaption>
+          </figure>
+        )}
         <div
           className="prose prose-neutral mt-6 max-w-none"
           dangerouslySetInnerHTML={{ __html: content.html }}
         />
         {children}
         <div className="mt-10 border-t border-black/10 pt-8">
-          <p className="mb-4 font-medium">Ready to move? Get a quote on WhatsApp.</p>
+          <p className="mb-4 font-medium">
+            Ready to move? Get a quote on WhatsApp.
+          </p>
           <WhatsAppCta />
         </div>
       </article>

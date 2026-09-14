@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import WhatsAppCta from "./WhatsAppCta";
 const links = [
@@ -16,12 +17,15 @@ export default function Header() {
       </a>
       <div className="shell header-inner">
         <Link href="/" className="wordmark" aria-label="Moving Solutions home">
-          <span className="brand-icon" aria-hidden="true">
-            ↗
-          </span>
-          <span>
-            moving<span className="brand-sub">SOLUTIONS</span>
-          </span>
+          <Image
+            src="/images/moving-solutions-logo.webp"
+            alt="Moving Solutions"
+            width={948}
+            height={294}
+            sizes="(max-width:480px) 140px, 200px"
+            className="brand-logo"
+            preload
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map(([label, href]) => (

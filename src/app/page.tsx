@@ -233,6 +233,36 @@ export default function Page() {
           </div>
         </figure>
       </section>
+      <section className="shell home-section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">A CLOSER LOOK</p>
+            <h2>On the job, across Singapore.</h2>
+          </div>
+          <p>
+            Furniture protected, cartons packed and spaces ready for the next
+            step.
+          </p>
+        </div>
+        <div className="work-gallery">
+          {[
+            ["1167", "Furniture wrapped for transport"],
+            ["1190", "Office cartons packed and organised"],
+            ["1158", "Packing a home, room by room"],
+          ].map(([id, caption]) => (
+            <figure key={id}>
+              <Image
+                src={`/images/library/${id}.webp`}
+                alt={caption}
+                width={900}
+                height={900}
+                sizes="(max-width:600px) 90vw, 30vw"
+              />
+              <figcaption>{caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
       <section className="clients-section">
         <div className="shell">
           <p className="eyebrow">IN GOOD COMPANY</p>
