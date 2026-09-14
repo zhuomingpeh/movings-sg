@@ -1,3 +1,4 @@
+import ArrowUpRight from "@/components/ArrowUpRight";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -67,7 +68,10 @@ export default function Page() {
           </p>
           <div className="button-row">
             <WhatsAppCta className="button-primary">
-              Get a moving quote <span aria-hidden="true">↗</span>
+              Get a moving quote{" "}
+              <span aria-hidden="true">
+                <ArrowUpRight />
+              </span>
             </WhatsAppCta>
             <Link className="button-secondary" href="/pricing">
               Explore our prices
@@ -92,7 +96,10 @@ export default function Page() {
             <strong>Real crew. Real care.</strong>
           </div>
           <div className="photo-label">
-            Singapore, island-wide <span aria-hidden="true">↗</span>
+            Singapore, island-wide{" "}
+            <span aria-hidden="true">
+              <ArrowUpRight />
+            </span>
           </div>
         </div>
       </section>
@@ -101,7 +108,9 @@ export default function Page() {
           <span>Moving homes.</span>
           <span>Moving businesses.</span>
           <span>Making room for what’s next.</span>
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">
+            <ArrowUpRight />
+          </span>
         </div>
       </div>
       <section className="shell home-section" id="services">
@@ -136,7 +145,7 @@ export default function Page() {
                 <h3>{title}</h3>
                 <p>{desc}</p>
                 <span className="round-arrow" aria-hidden="true">
-                  ↗
+                  <ArrowUpRight />
                 </span>
               </div>
             </Link>
@@ -152,7 +161,7 @@ export default function Page() {
             ["Art, pianos & safes", "/specialist-moving"],
           ].map(([label, href]) => (
             <Link key={href} href={href}>
-              {label} ↗
+              {label} <ArrowUpRight />
             </Link>
           ))}
         </div>
@@ -168,7 +177,7 @@ export default function Page() {
               </h2>
             </div>
             <Link href="/guides/moving-checklist" className="text-link">
-              Your moving checklist ↗
+              Your moving checklist <ArrowUpRight />
             </Link>
           </div>
           <div className="process-grid">
@@ -211,7 +220,7 @@ export default function Page() {
             dangerouslySetInnerHTML={{ __html: content.html }}
           />
           <Link className="text-link" href="/about">
-            Meet Moving Solutions ↗
+            Meet Moving Solutions <ArrowUpRight />
           </Link>
         </div>
         <figure>
@@ -224,7 +233,9 @@ export default function Page() {
           />
           <figcaption>Our team, ready for your next move.</figcaption>
           <div className="story-note">
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">
+              <ArrowUpRight />
+            </span>
             <p>
               From Woodlands
               <br />
@@ -312,7 +323,10 @@ export default function Page() {
             </p>
           </div>
           <WhatsAppCta className="button-light">
-            Start on WhatsApp <span aria-hidden="true">↗</span>
+            Start on WhatsApp{" "}
+            <span aria-hidden="true">
+              <ArrowUpRight />
+            </span>
           </WhatsAppCta>
         </div>
       </section>

@@ -1,3 +1,4 @@
+import ArrowUpRight from "@/components/ArrowUpRight";
 import Image from "next/image";
 import Link from "next/link";
 import WhatsAppCta from "./WhatsAppCta";
@@ -36,7 +37,7 @@ export default function Header() {
         </nav>
         <div className="header-actions">
           <WhatsAppCta className="button-primary header-quote">
-            Get a quote ↗
+            Get a quote <ArrowUpRight />
           </WhatsAppCta>
           <details className="mobile-menu">
             <summary>Menu</summary>
