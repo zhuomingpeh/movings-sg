@@ -45,6 +45,12 @@ const servicePhotos: Record<
     width: 1080,
     height: 1080,
   },
+  "/no-lift-access-movers": {
+    src: "/images/library/1008.webp",
+    alt: "Crew moving a wardrobe rack and boxes at a landed property gate",
+    width: 2000,
+    height: 1125,
+  },
 };
 
 type Props = {
