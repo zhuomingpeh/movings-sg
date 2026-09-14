@@ -3,7 +3,7 @@ import { BUSINESS, SITE_NAME } from "@/lib/site";
 import { ROUTES, type Section } from "@/lib/routes";
 
 const SECTION_TITLES: Record<Section, string> = {
-  core: "Core",
+  core: "Moving services",
   specialist: "Specialist Services",
   supporting: "More",
   guides: "Guides",
@@ -20,12 +20,12 @@ const SECTION_ORDER: Section[] = [
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-black/10 bg-black/[.02]">
+    <footer className="site-footer mt-auto">
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
           {SECTION_ORDER.map((section) => (
             <div key={section}>
-              <h2 className="mb-3 text-sm font-semibold text-black/60">
+              <h2 className="mb-3 text-sm font-semibold text-white/70">
                 {SECTION_TITLES[section]}
               </h2>
               <ul className="space-y-2 text-sm">
@@ -40,8 +40,8 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-10 border-t border-black/10 pt-6 text-sm text-black/60">
-          <p className="font-medium text-black/80">{SITE_NAME}</p>
+        <div className="mt-10 border-t border-white/20 pt-6 text-sm text-white/70">
+          <p className="font-medium text-white">{SITE_NAME}</p>
           <p>{BUSINESS.address.street}</p>
           <p>
             {BUSINESS.address.locality} {BUSINESS.address.postalCode}

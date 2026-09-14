@@ -18,16 +18,13 @@ const CLIENTS = [
  * about page. */
 export default function ClientLogos() {
   return (
-    <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
+    <div className="client-grid">
       {CLIENTS.map((client) => (
-        <div
-          key={client.name}
-          className="flex items-center justify-center rounded-lg border border-black/10 p-3"
-          title={client.name}
-        >
+        <div key={client.name} className="client-logo" title={client.name}>
           <Image
             src={client.src}
             alt={`${client.name} client logo`}
+            sizes="100px"
             width={1024}
             height={1024}
             className="h-14 w-14 rounded object-contain"

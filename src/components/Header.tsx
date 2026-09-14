@@ -1,35 +1,50 @@
 import Link from "next/link";
 import WhatsAppCta from "./WhatsAppCta";
-import { SITE_NAME } from "@/lib/site";
-
-// Curated subset for the header nav — the full 24-route list lives in the
-// footer. Keep this short; it's a nav, not a sitemap.
-const NAV_LINKS = [
-  { href: "/pricing", label: "Pricing" },
-  { href: "/storage", label: "Storage" },
-  { href: "/house-moving", label: "House Moving" },
-  { href: "/office-moving", label: "Office Moving" },
-  { href: "/guides", label: "Guides" },
-  { href: "/contact", label: "Contact" },
+const links = [
+  ["Services", "/#services"],
+  ["Pricing", "/pricing"],
+  ["Storage", "/storage"],
+  ["About us", "/about"],
+  ["Guides", "/guides"],
+  ["Contact", "/contact"],
 ];
-
 export default function Header() {
   return (
-    <header className="border-b border-black/10">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-        <Link href="/" className="text-lg font-bold">
-          {SITE_NAME}
+    <header className="site-header">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+      <div className="shell header-inner">
+        <Link href="/" className="wordmark" aria-label="Moving Solutions home">
+          <span className="brand-icon" aria-hidden="true">
+            ↗
+          </span>
+          <span>
+            moving<span className="brand-sub">SOLUTIONS</span>
+          </span>
         </Link>
-        <nav className="hidden gap-6 text-sm font-medium md:flex">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:underline">
-              {link.label}
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {links.map(([label, href]) => (
+            <Link href={href} key={href}>
+              {label}
             </Link>
           ))}
         </nav>
-        <WhatsAppCta className="rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700">
-          WhatsApp Us
-        </WhatsAppCta>
+        <div className="header-actions">
+          <WhatsAppCta className="button-primary header-quote">
+            Get a quote ↗
+          </WhatsAppCta>
+          <details className="mobile-menu">
+            <summary>Menu</summary>
+            <nav aria-label="Mobile navigation">
+              {links.map(([label, href]) => (
+                <Link href={href} key={href}>
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </details>
+        </div>
       </div>
     </header>
   );
