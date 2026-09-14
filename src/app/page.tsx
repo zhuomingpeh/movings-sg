@@ -3,10 +3,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ClientLogos from "@/components/ClientLogos";
+import Testimonials from "@/components/Testimonials";
+import EnquiryForm from "@/components/EnquiryForm";
 import WhatsAppCta from "@/components/WhatsAppCta";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessSchema } from "@/lib/schema";
 import { getPage } from "@/lib/content";
+import { SOCIAL } from "@/lib/site";
 
 export function generateMetadata(): Metadata {
   const { frontmatter } = getPage("home");
@@ -108,9 +111,6 @@ export default function Page() {
           <span>Moving homes.</span>
           <span>Moving businesses.</span>
           <span>Making room for what’s next.</span>
-          <span aria-hidden="true">
-            <ArrowUpRight />
-          </span>
         </div>
       </div>
       <section className="shell home-section" id="services">
@@ -184,18 +184,23 @@ export default function Page() {
             {[
               [
                 "01",
-                "Show us your move",
-                "Send an item list, photos and your preferred date. Tell us about lifts, stairs and loading bays.",
+                "Send us a list or photos",
+                "Item list, floor level, lift access, and your preferred date.",
               ],
               [
                 "02",
-                "Agree on the details",
-                "We’ll work through access, packing, storage and the scope of your quote before moving day.",
+                "Receive a quote",
+                "A fixed price, itemised, usually within 30 minutes.",
               ],
               [
                 "03",
+                "Arrange your date",
+                "Confirm the slot, weekday or weekend, and any add-ons.",
+              ],
+              [
+                "04",
                 "Leave the lifting to us",
-                "Our crew loads, transports and places your belongings according to the agreed plan.",
+                "Our crew loads, transports and places everything as agreed.",
               ],
             ].map(([n, title, desc]) => (
               <div key={n}>
@@ -237,9 +242,9 @@ export default function Page() {
               <ArrowUpRight />
             </span>
             <p>
-              From Woodlands
+              Our dedicated team
               <br />
-              to wherever’s next.
+              of packers and movers.
             </p>
           </div>
         </figure>
@@ -307,14 +312,35 @@ export default function Page() {
           <ClientLogos />
         </div>
       </section>
+      <section className="shell home-section" id="reviews">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">04 / WHAT CUSTOMERS SAY</p>
+            <h2>
+              Real moves.
+              <br />
+              Real reviews.
+            </h2>
+          </div>
+          <a
+            href={SOCIAL.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link"
+          >
+            See all reviews on Google <ArrowUpRight />
+          </a>
+        </div>
+        <Testimonials limit={3} />
+      </section>
       <section className="shell home-section">
         <div className="quote-panel">
           <div>
             <p className="eyebrow">LET’S TALK ABOUT YOUR MOVE</p>
             <h2>
-              New keys?
+              Ready to move?
               <br />
-              Let’s get you there.
+              Get your fixed quote.
             </h2>
             <p>
               Send your photos, addresses and moving date.
@@ -329,6 +355,20 @@ export default function Page() {
             </span>
           </WhatsAppCta>
         </div>
+      </section>
+      <section className="shell home-section" id="enquiry">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">OR, SEND YOUR DETAILS</p>
+            <h2>
+              Not on WhatsApp?
+              <br />
+              Send an enquiry instead.
+            </h2>
+          </div>
+          <p>We reply within 30 minutes during working hours.</p>
+        </div>
+        <EnquiryForm />
       </section>
     </div>
   );

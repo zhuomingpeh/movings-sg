@@ -26,6 +26,13 @@ export const BUSINESS = {
 
 export const GA_MEASUREMENT_ID = "G-9H77FRG0MM";
 
+// Real profile links, supplied by Ming.
+export const SOCIAL = {
+  facebook: "https://www.facebook.com/movings.sg/",
+  instagram: "https://www.instagram.com/movingsolutions.sg/",
+  google: "https://share.google/bdGYKzy9D9OvNpdqU",
+} as const;
+
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${BUSINESS.whatsappNumber}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;

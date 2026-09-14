@@ -1,22 +1,29 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { sendEnquiryEmail } from "@/lib/email";
 
 /**
  * Handles the homepage enquiry form. Server Action, so the form works
  * without client JS (progressive enhancement) and posts straight to the
- * server rather than needing a separate API route.
- *
- * TODO(Phase 4 / Ming): wire this up to email (Resend?) or a CRM instead
- * of just logging. Right now an enquiry is not silently dropped, but it
- * also isn't going anywhere a human will see it.
+ * server rather than needing a separate API route. Emails the lead to
+ * contact@movings.sg (see src/lib/email.ts) — WhatsApp stays the faster
+ * path, but not everyone wants to message a business on WhatsApp first.
  */
 export async function submitEnquiry(formData: FormData) {
-  const name = formData.get("name");
-  const contact = formData.get("contact");
-  const message = formData.get("message");
+  const name = String(formData.get("name") ?? "").trim();
+  const mobile = String(formData.get("mobile") ?? "").trim();
+  const contact = String(formData.get("contact") ?? "").trim();
+  const message = String(formData.get("message") ?? "").trim();
 
-  console.log("[enquiry]", { name, contact, message, at: new Date().toISOString() });
+  if (!name || !mobile) {
+    // Shouldn't happen past the form's own `required` attributes, but
+    // don't silently succeed if it does (e.g. JS-less client stripping
+    // fields some other way).
+    redirect("/?enquiry=error");
+  }
+
+  await sendEnquiryEmail({ name, mobile, contact, message });
 
   redirect("/thank-you");
 }

@@ -14,23 +14,41 @@ const CLIENTS = [
   { name: "MCAS Darul Arqam", src: "/images/clients/mcas-darul-arqam.webp" },
 ] as const;
 
-/** Client logo grid for the "Trusted By" sections on the homepage and
- * about page. */
+function LogoTile({ client }: { client: (typeof CLIENTS)[number] }) {
+  return (
+    <div className="client-logo" title={client.name}>
+      <Image
+        src={client.src}
+        alt={`${client.name} client logo`}
+        sizes="100px"
+        width={1024}
+        height={1024}
+      />
+    </div>
+  );
+}
+
+/**
+ * Client logo marquee for the "Trusted By" sections on the homepage and
+ * about page: scrolls continuously, pauses on hover, nothing to click.
+ * The track is rendered twice back-to-back so the loop (which scrolls
+ * exactly 50% of the track's width) is seamless.
+ */
 export default function ClientLogos() {
   return (
-    <div className="client-grid">
-      {CLIENTS.map((client) => (
-        <div key={client.name} className="client-logo" title={client.name}>
-          <Image
-            src={client.src}
-            alt={`${client.name} client logo`}
-            sizes="100px"
-            width={1024}
-            height={1024}
-            className="h-14 w-14 rounded object-contain"
-          />
+    <div className="client-marquee">
+      <div className="client-track">
+        {CLIENTS.map((client) => (
+          <LogoTile client={client} key={`a-${client.name}`} />
+        ))}
+        {/* Duplicate for the seamless loop; hidden from assistive tech so
+            each logo is only announced once. */}
+        <div aria-hidden="true" style={{ display: "contents" }}>
+          {CLIENTS.map((client) => (
+            <LogoTile client={client} key={`b-${client.name}`} />
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

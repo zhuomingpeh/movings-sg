@@ -11,6 +11,6 @@ disposal handled by the same crew instead of three different vendors.
 
 ## What a Move Costs
 
-Basic moves start from **SGD 200-450** for a 1-room HDB flat and scale up
-by flat size and access. See the full [rate table](/pricing) for every
-flat size, add-on service, and what changes the price before you book.
+Basic moves start from **SGD 80** and scale up by flat size, volume and
+access. See the full [rate table](/pricing) for every flat size, add-on
+service, and what changes the price before you book.

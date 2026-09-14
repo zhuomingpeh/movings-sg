@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BUSINESS, SITE_NAME } from "@/lib/site";
 import { ROUTES, type Section } from "@/lib/routes";
+import SocialLinks from "./SocialLinks";
 
 const SECTION_TITLES: Record<Section, string> = {
   core: "Moving services",
@@ -52,6 +53,7 @@ export default function Footer() {
             </a>
           </p>
           <p>UEN {BUSINESS.uen}</p>
+          <SocialLinks />
           <p className="mt-4">
             &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>

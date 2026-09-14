@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
 import HeroBanner from "@/components/HeroBanner";
+import EnquiryForm from "@/components/EnquiryForm";
 import { getPage } from "@/lib/content";
 
 const FILE = "contact";
@@ -26,6 +27,11 @@ export default function Page() {
           height={576}
         />
       }
-    />
+    >
+      <div className="mt-10 border-t border-black/10 pt-8">
+        <h2 className="mb-4 text-xl font-semibold">Send an Enquiry</h2>
+        <EnquiryForm />
+      </div>
+    </PageLayout>
   );
 }

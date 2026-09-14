@@ -2,50 +2,44 @@ import { submitEnquiry } from "@/app/actions/enquiry";
 
 /**
  * Server-rendered enquiry form (Server Action). No client JS is required
- * for it to submit — the brief is explicit that content and core
- * interactions must work without client-side rendering.
+ * for it to submit — an alternative to WhatsApp for people who'd rather
+ * not start there. Mobile number is required so a lead can always be
+ * reached even if the email address given is wrong or unchecked.
  */
 export default function EnquiryForm() {
   return (
-    <form action={submitEnquiry} className="grid gap-4 sm:max-w-md">
-      <div>
-        <label htmlFor="name" className="mb-1 block text-sm font-medium">
-          Name
-        </label>
+    <form action={submitEnquiry} className="enquiry-form">
+      <div className="enquiry-row">
+        <label htmlFor="name">Name</label>
+        <input id="name" name="name" required autoComplete="name" />
+      </div>
+      <div className="enquiry-row">
+        <label htmlFor="mobile">Mobile number</label>
         <input
-          id="name"
-          name="name"
+          id="mobile"
+          name="mobile"
+          type="tel"
           required
-          className="w-full rounded-md border border-black/15 px-3 py-2"
+          autoComplete="tel"
+          placeholder="+65 9123 4567"
+          pattern="[0-9+\s-]{8,}"
+          title="A phone number, at least 8 digits"
         />
       </div>
-      <div>
-        <label htmlFor="contact" className="mb-1 block text-sm font-medium">
-          Phone or email
-        </label>
-        <input
-          id="contact"
-          name="contact"
-          required
-          className="w-full rounded-md border border-black/15 px-3 py-2"
-        />
+      <div className="enquiry-row">
+        <label htmlFor="contact">Email (optional)</label>
+        <input id="contact" name="contact" type="email" autoComplete="email" />
       </div>
-      <div>
-        <label htmlFor="message" className="mb-1 block text-sm font-medium">
-          Tell us about your move
-        </label>
+      <div className="enquiry-row">
+        <label htmlFor="message">Tell us about your move</label>
         <textarea
           id="message"
           name="message"
           rows={4}
           placeholder="Property type, floor level, lift access, preferred date"
-          className="w-full rounded-md border border-black/15 px-3 py-2"
         />
       </div>
-      <button
-        type="submit"
-        className="rounded-md bg-black px-5 py-3 font-semibold text-white hover:bg-black/80"
-      >
+      <button type="submit" className="button-primary">
         Send Enquiry
       </button>
     </form>

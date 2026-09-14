@@ -1,9 +1,13 @@
+import WhatsAppIcon from "./WhatsAppIcon";
 import { whatsappLink } from "@/lib/site";
 
 type Props = {
   message?: string;
   className?: string;
   children?: React.ReactNode;
+  /** Set false to omit the WhatsApp glyph, e.g. inside a badge that's
+   * already tight on space. Shown by default. */
+  icon?: boolean;
 };
 
 /**
@@ -12,7 +16,12 @@ type Props = {
  * tracking is wired up in Phase 4 — Enhanced Measurement does not catch
  * wa.me links on its own.
  */
-export default function WhatsAppCta({ message, className, children }: Props) {
+export default function WhatsAppCta({
+  message,
+  className,
+  children,
+  icon = true,
+}: Props) {
   return (
     <a
       href={whatsappLink(message)}
@@ -21,6 +30,7 @@ export default function WhatsAppCta({ message, className, children }: Props) {
       data-analytics-event="whatsapp_click"
       className={className ?? "button-primary"}
     >
+      {icon && <WhatsAppIcon />}
       {children ?? "WhatsApp Us for a Quote"}
     </a>
   );

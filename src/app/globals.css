@@ -97,7 +97,7 @@ summary:focus-visible {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 10px;
   padding: 17px 23px;
   border-radius: 5px;
   font-size: 14px;
@@ -242,18 +242,28 @@ summary:focus-visible {
 .service-strip {
   background: #113766;
   color: #f5f9ff;
+  margin-top: -1px;
 }
 .service-strip .shell {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding-block: 22px;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  padding-block: 16px;
+  font-size: 13px;
+  font-weight: 550;
+  letter-spacing: 0.2px;
 }
-.service-strip span:last-child {
-  font-size: 28px;
-  color: #a9d4ff;
+.service-strip span:not(:last-child)::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #6d9bd6;
+  display: inline-block;
+  margin-left: 12px;
+  vertical-align: middle;
 }
 .home-section {
   padding-block: 90px;
@@ -284,7 +294,7 @@ summary:focus-visible {
 }
 .service-card {
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 14px;
   overflow: hidden;
   background: #ffffff;
   transition:
@@ -303,7 +313,7 @@ summary:focus-visible {
 .service-art img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   mix-blend-mode: multiply;
 }
 .service-card-copy {
@@ -359,8 +369,8 @@ summary:focus-visible {
 }
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 45px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
   margin-top: 52px;
 }
 .step-number {
@@ -558,6 +568,12 @@ article h1 {
   .service-art {
     aspect-ratio: 1.5;
   }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .story-section {
     gap: 35px;
   }
@@ -634,9 +650,7 @@ article h1 {
   }
   .service-strip .shell {
     font-size: 11px;
-  }
-  .service-strip span:nth-child(3) {
-    display: none;
+    gap: 6px 18px;
   }
 }
 @media (max-width: 480px) {
@@ -851,4 +865,177 @@ article h1 {
     font-size: 12px;
     padding: 14px;
   }
+}
+
+/* WhatsApp floating bubble, all pages */
+.whatsapp-bubble {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  box-shadow: 0 8px 20px #0004;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.whatsapp-bubble:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px #0005;
+}
+@media print {
+  .whatsapp-bubble {
+    display: none;
+  }
+}
+
+/* Client logo marquee: two copies of the track, scrolled by exactly one
+   copy's width so the loop is seamless. Pauses on hover; no click target. */
+.client-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+.client-track {
+  display: flex;
+  width: max-content;
+  gap: 15px;
+  animation: client-scroll 32s linear infinite;
+}
+.client-marquee:hover .client-track {
+  animation-play-state: paused;
+}
+@keyframes client-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-track {
+    animation: none;
+  }
+}
+
+/* Testimonials */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.testimonial-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.testimonial-stars {
+  color: #f5a623;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.testimonial-card p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.testimonial-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.testimonial-name {
+  font-weight: 650;
+  font-size: 13px;
+  color: var(--foreground);
+}
+.testimonial-source {
+  font-size: 11px;
+  color: var(--muted);
+}
+@media (max-width: 800px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enquiry form */
+.enquiry-form {
+  display: grid;
+  gap: 16px;
+  max-width: 480px;
+}
+.enquiry-row {
+  display: grid;
+  gap: 6px;
+}
+.enquiry-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.enquiry-row input,
+.enquiry-row textarea {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--foreground);
+}
+.enquiry-row input:focus,
+.enquiry-row textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.enquiry-form .button-primary {
+  justify-self: start;
+}
+
+/* Social icons (footer) */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.social-links a {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffffff14;
+  color: #dce9f9;
+  transition: background 0.2s;
+}
+.social-links a:hover {
+  background: #ffffff2a;
 }

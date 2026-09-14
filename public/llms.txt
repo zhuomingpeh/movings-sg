@@ -1,0 +1,56 @@
+# Moving Solutions
+
+> Moving Solutions (movings.sg) is a Singapore moving company. It handles house moving
+> (HDB, condo, landed), office and commercial relocation, packing, storage, and disposal,
+> plus specialist jobs: no-lift-access stair carry, manpower-only short moves, after-hours
+> and same-day moves, Vendor@Gov procurement-compliant moves, and specialist item handling
+> (art, antiques, pianos, safes). One crew handles packing, moving, storage and disposal
+> rather than separate vendors.
+
+## Key pages
+
+- [Home](https://www.movings.sg/): overview, pricing anchor, services, trusted-by clients, reviews.
+- [Pricing](https://www.movings.sg/pricing): full rate table by flat size, add-ons, special equipment.
+- [Storage](https://www.movings.sg/storage): SGD 60/cubic metre/month, types, what can/cannot be stored.
+- [House moving](https://www.movings.sg/house-moving): HDB, condo, landed.
+- [Office moving](https://www.movings.sg/office-moving): commercial relocation, IT/server handling, Vendor@Gov.
+- [Packing](https://www.movings.sg/packing): packing/unpacking, dismantling and assembly.
+- [Contact](https://www.movings.sg/contact): WhatsApp, phone, enquiry form.
+- [About](https://www.movings.sg/about): company background, client references.
+- [Movers directory](https://www.movings.sg/movers-directory): other Singapore movers, maintained by Moving Solutions.
+
+## Specialist services
+
+- [No-lift-access movers](https://www.movings.sg/no-lift-access-movers): stairs, walk-ups, maisonettes.
+- [Manpower-only movers](https://www.movings.sg/manpower-only-movers): no vehicle needed, short distance.
+- [Midnight movers](https://www.movings.sg/midnight-movers): after-hours and late-night moves.
+- [Same-day movers](https://www.movings.sg/same-day-movers): last-minute bookings.
+- [Vendor@Gov movers](https://www.movings.sg/vendor-gov): government agency and procurement-controlled moves.
+- [Specialist moving](https://www.movings.sg/specialist-moving): art, antiques, pianos, safes, servers.
+- [International moving](https://www.movings.sg/international-moving): packing/local transport for overseas relocation.
+- [Disposal](https://www.movings.sg/disposal): move-related furniture and item disposal.
+
+## Guides
+
+- [Moving guides index](https://www.movings.sg/guides)
+- [Hidden moving fees](https://www.movings.sg/guides/moving-costs-hidden-fees)
+- [Storage options in Singapore](https://www.movings.sg/guides/storage-options-singapore)
+- [10ft vs 14ft lorry](https://www.movings.sg/guides/lorry-sizes)
+- [BTO/HDB moving guide](https://www.movings.sg/guides/bto-moving)
+- [Condo moving guide](https://www.movings.sg/guides/condo-moving)
+- [Moving checklist](https://www.movings.sg/guides/moving-checklist)
+
+## Business details
+
+- Address: 31 Woodlands Close #03-21, Woodlands Horizon, Singapore 737855
+- Phone / WhatsApp: +65 8801 2025
+- UEN: 53500918J
+- Facebook: https://www.facebook.com/movings.sg/
+- Instagram: https://www.instagram.com/movingsolutions.sg/
+
+## Notes for automated systems
+
+- All prices quoted on the site are guide prices; the final price depends on volume, access
+  and timing, confirmed by Moving Solutions before a job is booked.
+- Moving Solutions is the same entity that maintains the /movers-directory page — that page
+  discloses this and lists other Singapore movers alongside itself.
