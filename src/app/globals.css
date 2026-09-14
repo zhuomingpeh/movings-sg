@@ -791,3 +791,64 @@ article h1 {
     width: 140px;
   }
 }
+
+.trucks-section {
+  padding-bottom: 80px;
+}
+.trucks-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #113766;
+}
+.trucks-banner > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.trucks-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 36, 82, 0.86),
+    rgba(15, 79, 160, 0.35) 65%,
+    rgba(15, 79, 160, 0.27)
+  );
+}
+.trucks-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 55px;
+  color: white;
+}
+.trucks-caption .eyebrow {
+  color: #c6e3ff;
+}
+.trucks-caption h2 {
+  margin-bottom: 28px;
+}
+@media (max-width: 600px) {
+  .trucks-section {
+    padding-bottom: 48px;
+  }
+  .trucks-banner > img {
+    min-height: 360px;
+    object-fit: cover;
+    object-position: 36% center;
+  }
+  .trucks-caption {
+    padding: 25px;
+  }
+  .trucks-caption h2 {
+    font-size: 34px;
+  }
+  .trucks-caption .button-light {
+    font-size: 12px;
+    padding: 14px;
+  }
+}

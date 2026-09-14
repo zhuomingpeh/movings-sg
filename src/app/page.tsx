@@ -263,6 +263,32 @@ export default function Page() {
           ))}
         </div>
       </section>
+      <section
+        className="shell trucks-section"
+        aria-label="Moving Solutions trucks"
+      >
+        <div className="trucks-banner">
+          <Image
+            src="/images/home/trucks-banner.png"
+            alt="A lineup of Moving Solutions branded moving trucks"
+            width={1672}
+            height={941}
+            sizes="(max-width:800px) 95vw, 1240px"
+          />
+          <div className="trucks-tint" aria-hidden="true" />
+          <div className="trucks-caption">
+            <p className="eyebrow">MOVING SOLUTIONS / SINGAPORE</p>
+            <h2>
+              Ready for your
+              <br />
+              next chapter.
+            </h2>
+            <Link href="/house-moving" className="button-light">
+              Explore our moving services
+            </Link>
+          </div>
+        </div>
+      </section>
       <section className="clients-section">
         <div className="shell">
           <p className="eyebrow">IN GOOD COMPANY</p>
