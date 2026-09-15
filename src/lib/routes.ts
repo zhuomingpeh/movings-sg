@@ -3,11 +3,7 @@
 // list. Nav links for the header are a curated subset — see Header.tsx.
 
 export type Section =
-  | "core"
-  | "specialist"
-  | "supporting"
-  | "guides"
-  | "directory";
+  "core" | "specialist" | "supporting" | "guides" | "directory";
 
 export type RouteEntry = {
   path: string;
@@ -16,6 +12,7 @@ export type RouteEntry = {
 };
 
 export const ROUTES: RouteEntry[] = [
+  { path: "/blog", label: "Blog", section: "guides" },
   // Core (7)
   { path: "/", label: "Home", section: "core" },
   { path: "/pricing", label: "Pricing", section: "core" },
@@ -76,7 +73,11 @@ export const ROUTES: RouteEntry[] = [
   },
 
   // Directory (1)
-  { path: "/movers-directory", label: "Movers Directory", section: "directory" },
+  {
+    path: "/movers-directory",
+    label: "Movers Directory",
+    section: "directory",
+  },
 ];
 
 // /thank-you is intentionally excluded — it's a noindex conversion page
@@ -109,7 +110,9 @@ export function isServicePath(path: string): boolean {
  * to the raw slug segment if a path isn't in ROUTES (shouldn't happen for
  * our own pages, but better than crashing). */
 export function getBreadcrumbs(path: string): { name: string; path: string }[] {
-  const crumbs: { name: string; path: string }[] = [{ name: "Home", path: "/" }];
+  const crumbs: { name: string; path: string }[] = [
+    { name: "Home", path: "/" },
+  ];
   if (path === "/") return crumbs;
 
   const segments = path.split("/").filter(Boolean);

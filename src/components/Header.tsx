@@ -7,7 +7,7 @@ const links = [
   ["Pricing", "/pricing"],
   ["Storage", "/storage"],
   ["About us", "/about"],
-  ["Guides", "/guides"],
+  ["Blog", "/blog"],
   ["Contact", "/contact"],
 ];
 export default function Header() {

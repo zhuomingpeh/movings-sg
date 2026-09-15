@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+import fs from "node:fs";
 // Phase 2 redirect test: fetches every old URL in movings-redirect-map.csv
 // against a running local build and asserts it 301s to the mapped
 // destination — plus the trailing-slash variant of each, and a probe of
@@ -48,14 +48,32 @@ async function check(requestPath, expect) {
 }
 
 async function main() {
-  const rows = parseCsv();
+  const imported = JSON.parse(
+    fs.readFileSync(
+      new URL("../content/blog-import.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  const map = new Map(
+    imported.map((p) => [normalizePath(p.originalPath), `/blog/${p.slug}`]),
+  );
+  const rows = parseCsv().map((row) => ({
+    ...row,
+    new_url: map.get(normalizePath(row.old_url)) || row.new_url,
+  }));
+  for (const p of imported)
+    if (
+      !rows.some(
+        (r) => normalizePath(r.old_url) === normalizePath(p.originalPath),
+      )
+    )
+      rows.push({ old_url: p.originalPath, new_url: `/blog/${p.slug}` });
   let pass = 0;
   const failures = [];
 
   for (const row of rows) {
     const newPath = row.new_url === "/" ? "/" : row.new_url.replace(/\/$/, "");
     const isSelf = stripQuery(row.old_url) === row.new_url;
-    const oldPath = normalizePath(row.old_url);
 
     // 1. The literal URL as indexed by Search Console (query string and all).
     const literalExpect = isSelf
@@ -66,9 +84,14 @@ async function main() {
     else failures.push(`${row.old_url} :: ${literal.detail}`);
 
     // 2. The opposite trailing-slash variant.
-    const altPath = toggleSlash(oldPath);
+    const altPath = toggleSlash(stripQuery(row.old_url));
     if (altPath && !isSelf) {
-      const alt = await check(altPath, { type: "redirect", destination: newPath });
+      const alt = await check(
+        altPath,
+        altPath === newPath
+          ? { type: "ok" }
+          : { type: "redirect", destination: newPath },
+      );
       if (alt.ok) pass++;
       else failures.push(`${altPath} (slash variant) :: ${alt.detail}`);
     }
@@ -88,7 +111,9 @@ async function main() {
   // /packing/ -> /packing, must not produce a rule for the bare /packing
   // path pointing at itself.
   const destinations = new Set(
-    rows.map((row) => (row.new_url === "/" ? "/" : row.new_url.replace(/\/$/, "")))
+    rows.map((row) =>
+      row.new_url === "/" ? "/" : row.new_url.replace(/\/$/, ""),
+    ),
   );
   for (const destination of destinations) {
     const result = await check(destination, { type: "ok" });
@@ -97,7 +122,9 @@ async function main() {
   }
 
   const total = pass + failures.length;
-  console.log(`Redirect test against ${BASE_URL}: ${pass}/${total} checks passed.`);
+  console.log(
+    `Redirect test against ${BASE_URL}: ${pass}/${total} checks passed.`,
+  );
   if (failures.length) {
     console.log(`\n${failures.length} failure(s):`);
     for (const f of failures) console.log(`  - ${f}`);

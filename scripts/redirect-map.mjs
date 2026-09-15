@@ -87,6 +87,12 @@ export function parseCsv(csvPath = DEFAULT_CSV_PATH) {
  */
 export function buildRedirectRules(csvPath = DEFAULT_CSV_PATH) {
   const rows = parseCsv(csvPath);
+  const imported = JSON.parse(
+    fs.readFileSync(
+      path.join(__dirname, "..", "content", "blog-import.json"),
+      "utf8",
+    ),
+  );
   const seen = new Set();
   const rules = [];
 
@@ -97,6 +103,14 @@ export function buildRedirectRules(csvPath = DEFAULT_CSV_PATH) {
     rules.push({ source, destination });
   };
 
+  // Original blog links now lead to the complete article, before legacy merges.
+  for (const post of imported) {
+    const old = normalizePath(post.originalPath);
+    addRule(old, `/blog/${post.slug}`);
+    addRule(`${old}/`, `/blog/${post.slug}`);
+  }
+  addRule("/blog/", "/blog");
+  addRule("/blog/:slug/", "/blog/:slug");
   for (const row of rows) {
     if (stripQuery(row.old_url) === row.new_url) continue; // already correct
 

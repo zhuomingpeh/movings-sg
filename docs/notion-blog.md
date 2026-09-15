@@ -1,0 +1,26 @@
+# Publishing the Movings blog with Notion
+
+Database: https://app.notion.com/p/3dcb3c5e8efd8039ab63cc899ae98eae
+Website: https://movings-sg.vercel.app/blog
+
+## Write a post
+1. Add a row in the Moving Solutions database.
+2. Fill Name (article title), Slug (lowercase words separated by hyphens), Description, Category and Published date.
+3. Write the article inside the page. Headings, paragraphs, lists, links, images and basic tables are supported. Avoid embedded databases and unsupported Notion widgets.
+4. Add a Notion page cover or set Cover URL.
+5. Set Status to Published. Draft, blank status, duplicate or invalid slugs, and future dates do not appear publicly.
+
+The site checks cached Notion data after 60 seconds when visited. The first visit after expiry can see the previous version while refresh runs; refresh again shortly afterwards. There is no webhook or scheduled background job and no manual deployment needed. Published edits work the same way. To unpublish, set Draft and allow the cache to refresh. Keep Slug stable after publication to avoid broken links.
+
+## Original WordPress posts
+42 public posts were imported, with WordPress ID and Original URL retained. Original content responses and converted Markdown are backed up locally in backups/wordpress (Git-ignored); this is NOT a full database/WordPress backup and does not include drafts or private posts.
+58 WordPress image files are stored under public/images/blog. Their Notion references use the Vercel site URL and will work independently of WordPress. New Notion-uploaded images use temporary signed URLs refreshed with the article content; they are not automatically backed up to permanent storage. Maintain separate exports of new content and images.
+
+Original post URLs redirect in one step to /blog/<original-slug>, overriding the old service-page consolidation redirects. The six existing guides remain separate.
+
+## Integration
+Notion database has Name, Status (Draft/Published), Slug, Description, Published date, Category, WordPress ID, Original URL and Cover URL. Integration secrets are in Git-ignored .env.local and encrypted Vercel project environment variables. Never put tokens in client-side code or NEXT_PUBLIC variables.
+
+Site pages render article content on the server and sanitize HTML. Unsupported/truncated markdown fails visibly instead of silently publishing an incomplete article. Notion outages show the blog error page when cached content cannot be used; other service pages continue working. Sitemap depends on the same published-post query.
+
+Import can be resumed with python scripts/import-wordpress-notion.py; existing WordPress IDs are skipped to protect edits. Dependencies: Python markdownify and beautifulsoup4.

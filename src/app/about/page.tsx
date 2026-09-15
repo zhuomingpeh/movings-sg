@@ -29,7 +29,7 @@ export default function Page() {
       }
     >
       <div className="mt-10 border-t border-black/10 pt-8">
-        <h2 className="mb-4 text-xl font-semibold">Some of the Teams We've Moved</h2>
+        <h2 className="mb-4 text-xl font-semibold">Some of the Teams We&apos;ve Moved</h2>
         <ClientLogos />
       </div>
     </PageLayout>
