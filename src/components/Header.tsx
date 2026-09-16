@@ -1,3 +1,4 @@
+import MobileMenu from "./MobileMenu";
 import ArrowUpRight from "@/components/ArrowUpRight";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,16 +40,7 @@ export default function Header() {
           <WhatsAppCta className="button-primary header-quote">
             Get a quote <ArrowUpRight />
           </WhatsAppCta>
-          <details className="mobile-menu">
-            <summary>Menu</summary>
-            <nav aria-label="Mobile navigation">
-              {links.map(([label, href]) => (
-                <Link href={href} key={href}>
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </details>
+          <MobileMenu links={links} />
         </div>
       </div>
     </header>

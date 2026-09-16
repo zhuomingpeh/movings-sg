@@ -1129,3 +1129,8 @@ article h1 {
     margin-top: 36px;
   }
 }
+
+@media (max-width: 480px) {
+  .header-quote { white-space: nowrap; padding: 10px 12px; gap: 6px; }
+  .header-quote > svg:last-child { display: none; }
+}

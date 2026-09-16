@@ -17,7 +17,6 @@
 - [Packing](https://www.movings.sg/packing): packing/unpacking, dismantling and assembly.
 - [Contact](https://www.movings.sg/contact): WhatsApp, phone, enquiry form.
 - [About](https://www.movings.sg/about): company background, client references.
-- [Movers directory](https://www.movings.sg/movers-directory): other Singapore movers, maintained by Moving Solutions.
 
 ## Specialist services
 
@@ -29,6 +28,10 @@
 - [Specialist moving](https://www.movings.sg/specialist-moving): art, antiques, pianos, safes, servers.
 - [International moving](https://www.movings.sg/international-moving): packing/local transport for overseas relocation.
 - [Disposal](https://www.movings.sg/disposal): move-related furniture and item disposal.
+
+## Blog
+
+- [Moving journal](https://www.movings.sg/blog): published moving, packing and storage articles from Moving Solutions.
 
 ## Guides
 
@@ -52,5 +55,3 @@
 
 - All prices quoted on the site are guide prices; the final price depends on volume, access
   and timing, confirmed by Moving Solutions before a job is booked.
-- Moving Solutions is the same entity that maintains the /movers-directory page — that page
-  discloses this and lists other Singapore movers alongside itself.

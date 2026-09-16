@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
 import { getPage } from "@/lib/content";
@@ -6,11 +7,7 @@ const FILE = "same-day-movers";
 
 export function generateMetadata(): Metadata {
   const { frontmatter } = getPage(FILE);
-  return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-    alternates: { canonical: frontmatter.slug },
-  };
+  return pageMetadata(frontmatter.title, frontmatter.description, frontmatter.slug);
 }
 
 export default function Page() {

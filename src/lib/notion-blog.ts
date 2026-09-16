@@ -3,6 +3,7 @@ import "server-only";
 import { cache } from "react";
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
+import retiredSlugs from "../../content/retired-blog-slugs.json";
 import imported from "../../content/blog-import.json";
 
 type RichText = { plain_text?: string; text?: { content: string } };
@@ -87,6 +88,7 @@ export const getBlogPosts = cache(async (): Promise<BlogPost[]> => {
     }))
     .filter(
       (p) =>
+        !retiredSlugs.includes(p.slug) &&
         p.title &&
         /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug) &&
         (!p.date || Date.parse(p.date) <= Date.now()),

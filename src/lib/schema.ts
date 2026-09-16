@@ -3,12 +3,13 @@
 // where FAQs exist, BreadcrumbList site-wide.
 
 import { BUSINESS, SITE_NAME, SITE_URL, SOCIAL } from "./site";
-import { REVIEWS } from "@/components/Testimonials";
 
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "MovingCompany",
+    "@id": `${SITE_URL}/#business`,
+    areaServed: { "@type": "Country", name: "Singapore" },
     name: SITE_NAME,
     legalName: BUSINESS.legalName,
     url: SITE_URL,
@@ -29,21 +30,7 @@ export function localBusinessSchema() {
     // src/lib/site.ts). Add an `openingHoursSpecification` array once Ming
     // supplies real hours.
     sameAs: [SOCIAL.facebook, SOCIAL.instagram, SOCIAL.google].filter(Boolean),
-    // Built only from the reviews Ming actually supplied (see
-    // Testimonials.tsx) — not a claim about the full Google listing, which
-    // may have a different total. Update ratingCount once the real GBP
-    // total is available.
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: String(REVIEWS.length),
-    },
-    review: REVIEWS.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.name },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody: r.text,
-    })),
+
   };
 }
 

@@ -1,12 +1,8 @@
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getBlogPosts } from "@/lib/notion-blog";
-export const metadata: Metadata = {
-  title: "Moving Blog Singapore | Moving Solutions",
-  description:
-    "Moving advice, packing tips and storage guides from Moving Solutions in Singapore.",
-  alternates: { canonical: "/blog" },
-};
+export const metadata: Metadata = pageMetadata("Moving Blog Singapore | Moving Solutions", "Moving advice, packing tips and storage guides from Moving Solutions in Singapore.", "/blog");
 export default async function Blog() {
   const posts = await getBlogPosts();
   return (
@@ -27,7 +23,7 @@ export default async function Blog() {
               <img src={p.cover} alt="" loading="lazy" className="blog-cover" />
             )}
             <div className="blog-card-copy">
-              <p className="eyebrow">{p.category || "Moving advice"}</p>
+              <p className="eyebrow">{p.category && p.category !== "Uncategorized" ? p.category : "Moving advice"}</p>
               <h2>{p.title}</h2>
               <p>{p.description}</p>
               {p.date && (

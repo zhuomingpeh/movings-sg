@@ -8,7 +8,6 @@ const SECTION_TITLES: Record<Section, string> = {
   specialist: "Specialist Services",
   supporting: "More",
   guides: "Guides",
-  directory: "Directory",
 };
 
 const SECTION_ORDER: Section[] = [
@@ -16,14 +15,13 @@ const SECTION_ORDER: Section[] = [
   "specialist",
   "supporting",
   "guides",
-  "directory",
 ];
 
 export default function Footer() {
   return (
     <footer className="site-footer mt-auto">
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4">
           {SECTION_ORDER.map((section) => (
             <div key={section}>
               <h2 className="mb-3 text-sm font-semibold text-white/70">

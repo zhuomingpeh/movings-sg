@@ -3,7 +3,7 @@
 // list. Nav links for the header are a curated subset — see Header.tsx.
 
 export type Section =
-  "core" | "specialist" | "supporting" | "guides" | "directory";
+  "core" | "specialist" | "supporting" | "guides";
 
 export type RouteEntry = {
   path: string;
@@ -72,12 +72,7 @@ export const ROUTES: RouteEntry[] = [
     section: "guides",
   },
 
-  // Directory (1)
-  {
-    path: "/movers-directory",
-    label: "Movers Directory",
-    section: "directory",
-  },
+
 ];
 
 // /thank-you is intentionally excluded — it's a noindex conversion page

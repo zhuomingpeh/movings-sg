@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
 import HeroBanner from "@/components/HeroBanner";
@@ -7,11 +8,7 @@ const FILE = "bto-moving";
 
 export function generateMetadata(): Metadata {
   const { frontmatter } = getGuide(FILE);
-  return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-    alternates: { canonical: frontmatter.slug },
-  };
+  return pageMetadata(frontmatter.title, frontmatter.description, frontmatter.slug);
 }
 
 export default function Page() {

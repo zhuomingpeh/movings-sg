@@ -118,7 +118,7 @@ export default function PageLayout({ content, children, hero }: Props) {
         </h1>
         {photo && !hero && (
           <figure className="service-photo">
-            <Image {...photo} sizes="(max-width:768px) 95vw, 736px" />
+            <Image {...photo} alt={photo.alt} sizes="(max-width:768px) 95vw, 736px" />
             <figcaption>{photo.alt}</figcaption>
           </figure>
         )}

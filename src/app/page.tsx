@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import ArrowUpRight from "@/components/ArrowUpRight";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -13,11 +14,7 @@ import { SOCIAL } from "@/lib/site";
 
 export function generateMetadata(): Metadata {
   const { frontmatter } = getPage("home");
-  return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-    alternates: { canonical: "/" },
-  };
+  return pageMetadata(frontmatter.title, frontmatter.description, "/");
 }
 const services = [
   [

@@ -10,6 +10,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_CSV_PATH = path.join(__dirname, "..", "movings-redirect-map.csv");
 
+export const RETIRED_SLUGS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "content", "retired-blog-slugs.json"), "utf8"));
+export const RETIRED_PATHS = new Set(["/movers-directory", "/60-movers-in-singapore", ...RETIRED_SLUGS.flatMap(s => [`/${s}`, `/blog/${s}`])]);
+
 export const CATCH_ALL_PREFIXES = [
   "/services",
   "/moving-services",
@@ -44,7 +47,6 @@ export const CANONICAL_PATHS = [
   "/guides/bto-moving",
   "/guides/condo-moving",
   "/guides/moving-checklist",
-  "/movers-directory",
 ];
 
 export function stripQuery(url) {
@@ -97,6 +99,7 @@ export function buildRedirectRules(csvPath = DEFAULT_CSV_PATH) {
   const rules = [];
 
   const addRule = (source, destination) => {
+    if (RETIRED_PATHS.has(normalizePath(source))) return;
     if (source === destination) return; // would just redirect a page to itself
     if (seen.has(source)) return;
     seen.add(source);
@@ -110,7 +113,6 @@ export function buildRedirectRules(csvPath = DEFAULT_CSV_PATH) {
     addRule(`${old}/`, `/blog/${post.slug}`);
   }
   addRule("/blog/", "/blog");
-  addRule("/blog/:slug/", "/blog/:slug");
   for (const row of rows) {
     if (stripQuery(row.old_url) === row.new_url) continue; // already correct
 

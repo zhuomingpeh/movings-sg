@@ -24,3 +24,9 @@ Notion database has Name, Status (Draft/Published), Slug, Description, Published
 Site pages render article content on the server and sanitize HTML. Unsupported/truncated markdown fails visibly instead of silently publishing an incomplete article. Notion outages show the blog error page when cached content cannot be used; other service pages continue working. Sitemap depends on the same published-post query.
 
 Import can be resumed with python scripts/import-wordpress-notion.py; existing WordPress IDs are skipped to protect edits. Dependencies: Python markdownify and beautifulsoup4.
+
+## Uploading photos
+Open the post itself (not just the database row). For the thumbnail/hero, choose Add cover, Change cover, then Upload. For images within the article, type /image, choose Image, then Upload, or drag the photo into the article. A database Files property is not read by this website: use the page cover and body images. Suggested uploads: JPG or WebP, around 1600 pixels wide, ideally under 300 KB, with a meaningful caption/alt description. Preview the published article after the cache refresh. Description controls the search snippet; Category is optional.
+
+## Retired directory content (16 September 2026)
+The three company-list articles in content/retired-blog-slugs.json are Draft in Notion and excluded in code. The directory page and its legacy paths return HTTP 410 with noindex on the new site. Restoring these pages requires an intentional code change as well as a Notion status change. Original WordPress copies remain on the old host until separately unpublished or the domain is switched.

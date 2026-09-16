@@ -1,3 +1,5 @@
+import { breadcrumbListSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -11,11 +13,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = await getBlogPost(slug);
   if (!p) return { title: "Post not found", robots: { index: false } };
   return {
-    title: `${p.title} | ${SITE_NAME}`,
+    ...pageMetadata(`${p.title} | ${SITE_NAME}`, p.description, `/blog/${p.slug}`, p.cover || undefined),
     description: p.description,
     alternates: { canonical: `/blog/${p.slug}` },
     openGraph: {
       type: "article",
+      url: `${SITE_URL}/blog/${p.slug}`,
+      siteName: SITE_NAME,
+      publishedTime: p.date || undefined,
+      modifiedTime: p.updated,
       title: p.title,
       description: p.description,
       ...(p.cover ? { images: [p.cover] } : {}),
@@ -28,10 +34,11 @@ export default async function Article({ params }: Props) {
   if (!p) notFound();
   return (
     <article className="blog-article">
+      <JsonLd data={breadcrumbListSchema([{name: "Home", path: "/"}, {name: "Blog", path: "/blog"}, {name: p.title, path: `/blog/${p.slug}`}])} />
       <nav className="mb-8 text-sm text-slate-600" aria-label="Breadcrumb">
         <Link href="/">Home</Link> / <Link href="/blog">Blog</Link>
       </nav>
-      <p className="eyebrow">{p.category || "Moving advice"}</p>
+      <p className="eyebrow">{p.category && p.category !== "Uncategorized" ? p.category : "Moving advice"}</p>
       <h1>{p.title}</h1>
       {p.date && (
         <time className="blog-date" dateTime={p.date}>
@@ -63,7 +70,7 @@ export default async function Article({ params }: Props) {
           author: { "@type": "Organization", name: SITE_NAME },
           publisher: { "@type": "Organization", name: SITE_NAME },
           mainEntityOfPage: `${SITE_URL}/blog/${p.slug}`,
-          image: p.cover || undefined,
+          image: p.cover ? new URL(p.cover, SITE_URL).href : undefined,
         }}
       />
     </article>

@@ -22,10 +22,12 @@ export default function Analytics() {
       />
       <Script id="ga4-init" strategy="afterInteractive">
         {`
+          if (['www.movings.sg', 'movings.sg'].includes(window.location.hostname)) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}');
+          }
         `}
       </Script>
       <Script id="ga4-click-events" strategy="afterInteractive">

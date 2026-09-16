@@ -44,5 +44,5 @@ Get a full written quotation with these items itemised, not a single
 Scan for phrases like "surprise charges", "didn't mention", or "extra
 fees on moving day". These are signs a quote isn't the final price.
 
-See our [full rate table](/pricing) for what we itemise upfront, or the
-[movers directory](/movers-directory) for other operators in Singapore.
+See our [full rate table](/pricing) for what we itemise upfront, and ask for
+a written breakdown before confirming your move.

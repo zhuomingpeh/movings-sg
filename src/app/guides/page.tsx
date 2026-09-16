@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
@@ -5,11 +6,7 @@ import { getPage, getAllGuides } from "@/lib/content";
 
 export function generateMetadata(): Metadata {
   const { frontmatter } = getPage("guides");
-  return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-    alternates: { canonical: frontmatter.slug },
-  };
+  return pageMetadata(frontmatter.title, frontmatter.description, frontmatter.slug);
 }
 
 export default function Page() {

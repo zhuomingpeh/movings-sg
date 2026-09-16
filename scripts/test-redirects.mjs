@@ -9,6 +9,7 @@ import fs from "node:fs";
 //   BASE_URL=http://localhost:3100 node scripts/test-redirects.mjs
 
 import {
+  RETIRED_PATHS,
   parseCsv,
   normalizePath,
   stripQuery,
@@ -55,15 +56,15 @@ async function main() {
     ),
   );
   const map = new Map(
-    imported.map((p) => [normalizePath(p.originalPath), `/blog/${p.slug}`]),
+    imported.filter(p => !RETIRED_PATHS.has(normalizePath(p.originalPath))).map((p) => [normalizePath(p.originalPath), `/blog/${p.slug}`]),
   );
-  const rows = parseCsv().map((row) => ({
+  const rows = parseCsv().filter(r => !RETIRED_PATHS.has(normalizePath(r.old_url))).map((row) => ({
     ...row,
     new_url: map.get(normalizePath(row.old_url)) || row.new_url,
   }));
   for (const p of imported)
     if (
-      !rows.some(
+      !RETIRED_PATHS.has(normalizePath(p.originalPath)) && !rows.some(
         (r) => normalizePath(r.old_url) === normalizePath(p.originalPath),
       )
     )
@@ -121,6 +122,13 @@ async function main() {
     else failures.push(`${destination} (destination page) :: ${result.detail}`);
   }
 
+  for (const path of RETIRED_PATHS) {
+    for (const suffix of ["", "/"]) {
+      const res = await fetch(new URL(path + suffix, BASE_URL), {redirect: "manual"});
+      if (res.status === 410 && res.headers.get("x-robots-tag")?.includes("noindex")) pass++;
+      else failures.push(`${path}${suffix}: expected 410 + noindex, got ${res.status}`);
+    }
+  }
   const total = pass + failures.length;
   console.log(
     `Redirect test against ${BASE_URL}: ${pass}/${total} checks passed.`,

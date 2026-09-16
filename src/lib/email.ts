@@ -1,12 +1,6 @@
 import "server-only";
 import { Resend } from "resend";
 
-// Domain verification for EMAIL_FROM's domain happens in the Resend
-// dashboard (Ming needs to add the DNS records Resend gives you). Until
-// that's done, sends will fail or land from Resend's shared onboarding
-// address instead of an @movings.sg one. If RESEND_API_KEY isn't set at
-// all (e.g. local dev), sendEnquiryEmail logs instead of throwing, so an
-// enquiry is never silently lost either way.
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
@@ -21,10 +15,7 @@ export async function sendEnquiryEmail(fields: {
   contact: string;
   message: string;
 }) {
-  if (!resend) {
-    console.log("[enquiry] RESEND_API_KEY not set, logging only:", fields);
-    return;
-  }
+  if (!resend) throw new Error("Email delivery is not configured");
 
   const { error } = await resend.emails.send({
     from: EMAIL_FROM,
@@ -41,9 +32,5 @@ export async function sendEnquiryEmail(fields: {
     ].join("\n"),
   });
 
-  if (error) {
-    // Don't throw — the visitor already sees the thank-you page by the
-    // time this runs. Log loudly so a delivery failure doesn't go unnoticed.
-    console.error("[enquiry] Resend send failed:", error);
-  }
+  if (error) throw new Error("Email provider did not accept the enquiry");
 }
