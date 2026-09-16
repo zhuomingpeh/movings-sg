@@ -10,4 +10,4 @@
 - No new Google property or replacement stream was created; existing reporting history is retained.
 - Privacy notice approval, Google Business Profile access, and ongoing search/performance review remain separate owner follow-ups. Google Search Console and GA4 product linking has not been changed.
 
-Validation: production build and TypeScript passed; focused ESLint passed. Live lead-event verification follows deployment.
+Validation: production build and TypeScript passed; focused ESLint passed. Deployment movings-nf9ivqyr6-loanify.vercel.app is Ready. Live invalid-phone test displayed the validation error; a subsequent valid test reached /thank-you. GA4 Realtime confirmed exactly one generate_lead event and one generate_lead key event. The test email was clearly labelled Analytics verification — no booking.

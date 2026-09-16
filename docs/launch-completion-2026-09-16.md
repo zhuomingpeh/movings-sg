@@ -21,7 +21,7 @@
 
 ## Owner follow-up
 
-Search Console sitemap submission, GA4/Business Profile ownership checks, approved privacy information, and confirmation of advertised business prices/hours/terms remain owner-dependent tasks from the earlier audit. They are separate from the completed website DNS and deployment work.
+Search Console and GA4 checks are completed in [Google launch checks](google-launch-checks-2026-09-17.md): sitemap accepted with 63 pages, homepage recrawl requested, active analytics stream verified, and successful-enquiry key-event receipt verified. The owner approved pricing and terms. Approved privacy information, Business Profile access, and confirmation of business hours/response claims remain owner follow-ups.
 
 ## Rollback
 
