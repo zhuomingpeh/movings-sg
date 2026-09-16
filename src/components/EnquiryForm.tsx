@@ -1,9 +1,27 @@
 "use client";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { submitEnquiry } from "@/app/actions/enquiry";
 
 export default function EnquiryForm() {
   const [state, action, pending] = useActionState(submitEnquiry, {error: ""});
+  const router = useRouter();
+  const tracked = useRef(false);
+  useEffect(() => {
+    if (!state.success || tracked.current) return;
+    tracked.current = true;
+    try {
+      if (["www.movings.sg", "movings.sg"].includes(window.location.hostname)) {
+        const analytics = window as typeof window & {
+          gtag?: (command: string, event: string, parameters: Record<string, string>) => void;
+        };
+        analytics.gtag?.("event", "generate_lead", {form_name: "moving_enquiry"});
+      }
+    } finally {
+      router.replace("/thank-you");
+    }
+  }, [state.success, router]);
+  if (state.success) return <p role="status">Thanks, we&apos;ve got your enquiry. <a href="/thank-you">Continue</a></p>;
   return (
     <form action={action} className="enquiry-form">
       <div hidden aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off" /></label></div>

@@ -1,5 +1,4 @@
 "use server";
-import { redirect } from "next/navigation";
 import { sendEnquiryEmail } from "@/lib/email";
 export async function submitEnquiry(_previous: {error: string}, formData: FormData) {
   const name = String(formData.get("name") ?? "").trim();
@@ -15,5 +14,5 @@ export async function submitEnquiry(_previous: {error: string}, formData: FormDa
   } catch {
     return {error: "We could not send your enquiry. Please try again or WhatsApp us on +65 8801 2025."};
   }
-  redirect("/thank-you");
+  return {error: "", success: true};
 }
