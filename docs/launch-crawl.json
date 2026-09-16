@@ -1,10 +1,10 @@
 {
-  "base": "http://localhost:3117",
+  "base": "https://www.movings.sg",
   "pages": [
     {
       "path": "/blog",
       "status": 200,
-      "seconds": 0.1,
+      "seconds": 0.91,
       "title": "Moving Blog Singapore | Moving Solutions",
       "description": "Moving advice, packing tips and storage guides from Moving Solutions in Singapore.",
       "canonical": "https://www.movings.sg/blog",
@@ -18,7 +18,7 @@
     {
       "path": "/",
       "status": 200,
-      "seconds": 0.07,
+      "seconds": 0.31,
       "title": "Movers Singapore | Moving Solutions",
       "description": "Moving Solutions moves HDB, condo, landed and office moves across Singapore, with storage, packing and disposal handled by one crew. Fixed quote in one message.",
       "canonical": "https://www.movings.sg",
@@ -32,7 +32,7 @@
     {
       "path": "/pricing",
       "status": 200,
-      "seconds": 0.1,
+      "seconds": 0.73,
       "title": "Moving Prices Singapore | Moving Solutions",
       "description": "What movers cost in Singapore: a rate table by flat size, what pushes the price up, what's included, and what costs extra. Get a fixed quote on WhatsApp.",
       "canonical": "https://www.movings.sg/pricing",
@@ -46,7 +46,7 @@
     {
       "path": "/storage",
       "status": 200,
-      "seconds": 0.04,
+      "seconds": 0.84,
       "title": "Storage Services Singapore | Moving Solutions",
       "description": "Storage for moves in Singapore from SGD 60 per cubic metre per month. Storage types, how pricing works, access arrangements, and what can and cannot be stored.",
       "canonical": "https://www.movings.sg/storage",
@@ -60,7 +60,7 @@
     {
       "path": "/house-moving",
       "status": 200,
-      "seconds": 0.04,
+      "seconds": 0.69,
       "title": "House Moving Singapore (HDB & Condo) | Moving Solutions",
       "description": "House moving across HDB, condo and landed homes in Singapore. Lift access, corridor space, MCST rules and dismantling planned before moving day.",
       "canonical": "https://www.movings.sg/house-moving",
@@ -74,7 +74,7 @@
     {
       "path": "/office-moving",
       "status": 200,
-      "seconds": 0.01,
+      "seconds": 0.65,
       "title": "Office & Commercial Moving Singapore | Moving Solutions",
       "description": "Office and commercial relocation in Singapore: workstations, F&B equipment, IT and server handling, weekend and after-hours moves, Vendor@Gov capable.",
       "canonical": "https://www.movings.sg/office-moving",
@@ -88,7 +88,7 @@
     {
       "path": "/packing",
       "status": 200,
-      "seconds": 0.04,
+      "seconds": 0.82,
       "title": "Packing Services Singapore | Moving Solutions",
       "description": "Packing and unpacking, dismantling and furniture assembly for HDB, condo and office moves in Singapore. Full or partial packing, fragile items handled with care.",
       "canonical": "https://www.movings.sg/packing",
@@ -102,7 +102,7 @@
     {
       "path": "/contact",
       "status": 200,
-      "seconds": 0.0,
+      "seconds": 0.24,
       "title": "Contact Us | Moving Solutions",
       "description": "Get a moving quote from Moving Solutions in Singapore. WhatsApp, call, or send an enquiry and we'll reply within 30 minutes.",
       "canonical": "https://www.movings.sg/contact",
@@ -116,7 +116,7 @@
     {
       "path": "/no-lift-access-movers",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.76,
       "title": "No-Lift-Access Movers Singapore | Moving Solutions",
       "description": "Movers for walk-ups, maisonettes and stair carries in Singapore where there is no lift access. What it costs and how the crew is sized.",
       "canonical": "https://www.movings.sg/no-lift-access-movers",
@@ -130,7 +130,7 @@
     {
       "path": "/manpower-only-movers",
       "status": 200,
-      "seconds": 0.03,
+      "seconds": 0.7,
       "title": "Manpower-Only Movers Singapore | Moving Solutions",
       "description": "Hire manpower only, no vehicle needed, for short-distance moves within the same building, block or estate in Singapore.",
       "canonical": "https://www.movings.sg/manpower-only-movers",
@@ -144,7 +144,7 @@
     {
       "path": "/midnight-movers",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.73,
       "title": "Midnight Movers Singapore | Moving Solutions",
       "description": "Late-night and after-hours moving in Singapore for urgent office relocations, lease handovers and moves that can't happen during the day.",
       "canonical": "https://www.movings.sg/midnight-movers",
@@ -158,7 +158,7 @@
     {
       "path": "/same-day-movers",
       "status": 200,
-      "seconds": 0.0,
+      "seconds": 0.73,
       "title": "Same-Day Movers Singapore | Moving Solutions",
       "description": "Same-day moving services in Singapore for last-minute moves, lease endings and urgent handovers. Transparent pricing, no hidden surcharges.",
       "canonical": "https://www.movings.sg/same-day-movers",
@@ -172,7 +172,7 @@
     {
       "path": "/vendor-gov",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.81,
       "title": "Vendor@Gov Movers Singapore | Moving Solutions",
       "description": "Vendor@Gov registered movers in Singapore for government agency and procurement-controlled relocations, with documentation and compliance handled.",
       "canonical": "https://www.movings.sg/vendor-gov",
@@ -186,7 +186,7 @@
     {
       "path": "/specialist-moving",
       "status": 200,
-      "seconds": 0.03,
+      "seconds": 0.7,
       "title": "Specialist Moving: Art, Piano, Safes | Moving Solutions",
       "description": "Specialist moving in Singapore for artwork, antiques, pianos, safes and servers, with custom crating and careful handling.",
       "canonical": "https://www.movings.sg/specialist-moving",
@@ -200,7 +200,7 @@
     {
       "path": "/international-moving",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.7,
       "title": "International Moving Singapore | Moving Solutions",
       "description": "International moving support from Singapore, coordinated with your local move, packing and storage.",
       "canonical": "https://www.movings.sg/international-moving",
@@ -214,7 +214,7 @@
     {
       "path": "/disposal",
       "status": 200,
-      "seconds": 0.01,
+      "seconds": 0.77,
       "title": "Move-Related Disposal Singapore | Moving Solutions",
       "description": "Disposal of unwanted furniture, appliances and renovation debris as part of a house or office move in Singapore.",
       "canonical": "https://www.movings.sg/disposal",
@@ -228,7 +228,7 @@
     {
       "path": "/about",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 1.08,
       "title": "About Us | Moving Solutions",
       "description": "About Moving Solutions, a Singapore moving company trusted by residents and businesses including Kroll, Trelleborg and STATS ChipPAC.",
       "canonical": "https://www.movings.sg/about",
@@ -242,7 +242,7 @@
     {
       "path": "/guides",
       "status": 200,
-      "seconds": 0.01,
+      "seconds": 0.78,
       "title": "Moving Guides Singapore | Moving Solutions",
       "description": "Guides on moving costs, storage options, lorry sizes, BTO and condo moves, and a moving checklist for Singapore.",
       "canonical": "https://www.movings.sg/guides",
@@ -256,7 +256,7 @@
     {
       "path": "/guides/moving-costs-hidden-fees",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.69,
       "title": "Hidden Moving Fees in Singapore | Moving Solutions",
       "description": "Why some movers in Singapore advertise low prices then add charges for manpower, stairs and dismantling, and how to get a quote that doesn't do that.",
       "canonical": "https://www.movings.sg/guides/moving-costs-hidden-fees",
@@ -270,7 +270,7 @@
     {
       "path": "/guides/storage-options-singapore",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 1.24,
       "title": "Storage Options in Singapore | Moving Solutions",
       "description": "Self-storage vs on-demand storage in Singapore, and which one fits your move, renovation, or timing gap.",
       "canonical": "https://www.movings.sg/guides/storage-options-singapore",
@@ -284,7 +284,7 @@
     {
       "path": "/guides/lorry-sizes",
       "status": 200,
-      "seconds": 0.0,
+      "seconds": 0.76,
       "title": "10ft vs 14ft Lorry Guide | Moving Solutions",
       "description": "How big a 10ft vs 14ft lorry is in Singapore, and which one fits your move so you don't pay for a second trip or unused space.",
       "canonical": "https://www.movings.sg/guides/lorry-sizes",
@@ -298,7 +298,7 @@
     {
       "path": "/guides/bto-moving",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.69,
       "title": "BTO / HDB Moving Guide | Moving Solutions",
       "description": "What to expect moving into a new BTO flat in Singapore while renovation is still ongoing, and how to plan it in stages.",
       "canonical": "https://www.movings.sg/guides/bto-moving",
@@ -312,7 +312,7 @@
     {
       "path": "/guides/condo-moving",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.8,
       "title": "Condo Moving Guide Singapore | Moving Solutions",
       "description": "What to check with your MCST before moving day when moving into or out of a condo in Singapore.",
       "canonical": "https://www.movings.sg/guides/condo-moving",
@@ -326,7 +326,7 @@
     {
       "path": "/guides/moving-checklist",
       "status": 200,
-      "seconds": 0.0,
+      "seconds": 0.8,
       "title": "Moving Checklist Singapore | Moving Solutions",
       "description": "A moving checklist for Singapore: what to ask before you book a mover, how to avoid scams, and what to expect on moving day.",
       "canonical": "https://www.movings.sg/guides/moving-checklist",
@@ -340,7 +340,7 @@
     {
       "path": "/blog/short-term-housing-in-singapore-what-to-do-with-your-belongings-between-moves",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 1.25,
       "title": "Short-Term Housing in Singapore: What to Do With Your Belongings Between Moves | Moving Solutions",
       "description": "Moving house does not always happen in one straight line. You may have already moved out of your current home [\u2026]",
       "canonical": "https://www.movings.sg/blog/short-term-housing-in-singapore-what-to-do-with-your-belongings-between-moves",
@@ -354,7 +354,7 @@
     {
       "path": "/blog/how-long-does-it-take-to-move-house-in-singapore-a-complete-guide",
       "status": 200,
-      "seconds": 0.09,
+      "seconds": 0.82,
       "title": "How Long Does It Take to Move House in Singapore? A Complete Guide | Moving Solutions",
       "description": "One of the most common questions people ask before booking a moving service is: How long will it take to [\u2026]",
       "canonical": "https://www.movings.sg/blog/how-long-does-it-take-to-move-house-in-singapore-a-complete-guide",
@@ -368,7 +368,7 @@
     {
       "path": "/blog/do-you-need-storage-during-your-move-5-situations-where-it-helps",
       "status": 200,
-      "seconds": 0.07,
+      "seconds": 0.95,
       "title": "Do You Need Storage During Your Move? 5 Situations Where It Helps | Moving Solutions",
       "description": "Moving house does not always mean moving everything directly from one home to another. Sometimes, there is a gap between [\u2026]",
       "canonical": "https://www.movings.sg/blog/do-you-need-storage-during-your-move-5-situations-where-it-helps",
@@ -382,7 +382,7 @@
     {
       "path": "/blog/moving-into-a-condo-in-singapore-what-to-check-before-moving-day",
       "status": 200,
-      "seconds": 0.09,
+      "seconds": 1.28,
       "title": "Moving Into a Condo in Singapore? What to Check Before Moving Day | Moving Solutions",
       "description": "Moving into a condominium may seem straightforward, but there is usually more to prepare than simply booking a moving truck. [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-into-a-condo-in-singapore-what-to-check-before-moving-day",
@@ -396,7 +396,7 @@
     {
       "path": "/blog/how-big-is-a-10ft-vs-14ft-lorry-a-simple-guide-for-your-next-move",
       "status": 200,
-      "seconds": 0.09,
+      "seconds": 0.73,
       "title": "How Big Is a 10ft vs 14ft Lorry? A Simple Guide for Your Next Move | Moving Solutions",
       "description": "How Big Is a 10ft vs 14ft Lorry? A Simple Guide for Your Next Move Booking a lorry that\u2019s too [\u2026]",
       "canonical": "https://www.movings.sg/blog/how-big-is-a-10ft-vs-14ft-lorry-a-simple-guide-for-your-next-move",
@@ -410,7 +410,7 @@
     {
       "path": "/blog/moving-collectibles-and-hobby-items-heres-how-we-pack-them-safely",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.75,
       "title": "Moving Collectibles and Hobby Items? Here\u2019s How We Pack Them Safely | Moving Solutions",
       "description": "For many homeowners, the most valuable belongings aren\u2019t always the biggest ones. LEGO collections, action figures, model kits, trading cards, [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-collectibles-and-hobby-items-heres-how-we-pack-them-safely",
@@ -424,7 +424,7 @@
     {
       "path": "/blog/planning-a-move-in-singapore-lets-talk-before-moving-day",
       "status": 200,
-      "seconds": 0.1,
+      "seconds": 1.14,
       "title": "Planning a Move in Singapore? Let\u2019s Talk Before Moving Day | Moving Solutions",
       "description": "Planning a move comes with plenty of questions. How many movers do you need? Should you book packing services? What [\u2026]",
       "canonical": "https://www.movings.sg/blog/planning-a-move-in-singapore-lets-talk-before-moving-day",
@@ -438,7 +438,7 @@
     {
       "path": "/blog/moving-items-that-dont-fit-in-a-box-heres-how-we-pack-them-safely",
       "status": 200,
-      "seconds": 0.11,
+      "seconds": 1.08,
       "title": "Moving Items That Don\u2019t Fit in a Box? Here\u2019s How We Pack Them Safely | Moving Solutions",
       "description": "Not everything can be packed neatly into a carton box. While boxes work well for clothes, books, and kitchenware, many [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-items-that-dont-fit-in-a-box-heres-how-we-pack-them-safely",
@@ -452,7 +452,7 @@
     {
       "path": "/blog/how-we-pack-fragile-and-personal-items-for-a-safe-move-in-singapore",
       "status": 200,
-      "seconds": 0.12,
+      "seconds": 0.95,
       "title": "How We Pack Fragile and Personal Items for a Safe Move in Singapore | Moving Solutions",
       "description": "Moving isn\u2019t just about transporting furniture. For many homeowners, the real concern is everything else. Glassware collected over the years. [\u2026]",
       "canonical": "https://www.movings.sg/blog/how-we-pack-fragile-and-personal-items-for-a-safe-move-in-singapore",
@@ -466,7 +466,7 @@
     {
       "path": "/blog/same-day-packing-and-moving-services-singapore",
       "status": 200,
-      "seconds": 0.12,
+      "seconds": 1.66,
       "title": "Same-Day Packing and Moving Services in Singapore: Everything You Need for a Stress-Free Move | Moving Solutions",
       "description": "Moving on short notice can feel overwhelming. Whether you\u2019re relocating because of an urgent lease expiry, a last-minute property completion, [\u2026]",
       "canonical": "https://www.movings.sg/blog/same-day-packing-and-moving-services-singapore",
@@ -480,7 +480,7 @@
     {
       "path": "/blog/from-offer-to-move-in-the-singapore-resale-property-buyers-timeline-and-when-to-book-your-movers",
       "status": 200,
-      "seconds": 0.09,
+      "seconds": 0.78,
       "title": "From Offer to Move-In: The Singapore Resale Property Buyer\u2019s Timeline (And When to Book Your Movers) | Moving Solutions",
       "description": "By Kelly Mark Property You found the home. You shook hands on the price. Now comes the part nobody warns [\u2026]",
       "canonical": "https://www.movings.sg/blog/from-offer-to-move-in-the-singapore-resale-property-buyers-timeline-and-when-to-book-your-movers",
@@ -494,7 +494,7 @@
     {
       "path": "/blog/free-moving-quotes-singapore-what-you-need-to-know",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.84,
       "title": "Free Moving Quotes Singapore: What You Need to Know | Moving Solutions",
       "description": "Moving to a new home or office comes with plenty of decisions, and one of the first questions most people [\u2026]",
       "canonical": "https://www.movings.sg/blog/free-moving-quotes-singapore-what-you-need-to-know",
@@ -508,7 +508,7 @@
     {
       "path": "/blog/downsizing-or-upgrading-your-home-in-singapore-heres-how-to-plan-a-smooth-move",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 1.01,
       "title": "Downsizing or Upgrading Your Home in Singapore? Here\u2019s How to Plan a Smooth Move | Moving Solutions",
       "description": "Life changes, and so do our housing needs. Some homeowners move into a larger property because their family is growing. [\u2026]",
       "canonical": "https://www.movings.sg/blog/downsizing-or-upgrading-your-home-in-singapore-heres-how-to-plan-a-smooth-move",
@@ -522,7 +522,7 @@
     {
       "path": "/blog/all-in-one-moving-services-in-singapore-why-more-people-prefer-one-team-for-everything",
       "status": 200,
-      "seconds": 0.05,
+      "seconds": 1.08,
       "title": "All-in-One Moving Services in Singapore: Why More People Prefer One Team for Everything | Moving Solutions",
       "description": "Planning a move in Singapore involves more than just transporting boxes from one place to another. Packing, furniture dismantling, manpower [\u2026]",
       "canonical": "https://www.movings.sg/blog/all-in-one-moving-services-in-singapore-why-more-people-prefer-one-team-for-everything",
@@ -536,7 +536,7 @@
     {
       "path": "/blog/moving-bulky-items-in-singapore-one-trip-can-make-all-the-difference",
       "status": 200,
-      "seconds": 0.09,
+      "seconds": 0.94,
       "title": "Moving Bulky Items in Singapore? One Trip Can Make All the Difference | Moving Solutions",
       "description": "Moving bulky furniture and heavy appliances in Singapore is not always straightforward. Between limited lift space, tight corridors, parking restrictions, [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-bulky-items-in-singapore-one-trip-can-make-all-the-difference",
@@ -550,7 +550,7 @@
     {
       "path": "/blog/when-should-you-start-looking-for-a-new-place-before-your-lease-ends-in-singapore",
       "status": 200,
-      "seconds": 0.02,
+      "seconds": 0.8,
       "title": "When Should You Start Looking for a New Place Before Your Lease Ends in Singapore? | Moving Solutions",
       "description": "Finding a new home in Singapore takes more planning than many people expect. Between viewing schedules, paperwork, renovation timelines, and [\u2026]",
       "canonical": "https://www.movings.sg/blog/when-should-you-start-looking-for-a-new-place-before-your-lease-ends-in-singapore",
@@ -564,7 +564,7 @@
     {
       "path": "/blog/packing-dismantling-and-furniture-assembly-services-in-singapore",
       "status": 200,
-      "seconds": 0.13,
+      "seconds": 0.93,
       "title": "Packing, Dismantling, and Furniture Assembly Services in Singapore | Moving Solutions",
       "description": "Moving is more than just transporting boxes from one location to another. Large furniture, fragile items, and bulky appliances often [\u2026]",
       "canonical": "https://www.movings.sg/blog/packing-dismantling-and-furniture-assembly-services-in-singapore",
@@ -578,7 +578,7 @@
     {
       "path": "/blog/how-to-avoid-moving-scams-in-singapore-what-to-look-out-for",
       "status": 200,
-      "seconds": 0.1,
+      "seconds": 0.68,
       "title": "How to Avoid Moving Scams in Singapore: What to Look Out For | Moving Solutions",
       "description": "Moving to a new home or office should be a smooth experience, but choosing the wrong mover can quickly turn [\u2026]",
       "canonical": "https://www.movings.sg/blog/how-to-avoid-moving-scams-in-singapore-what-to-look-out-for",
@@ -592,7 +592,7 @@
     {
       "path": "/blog/flexible-moving-services-in-singapore-why-timing-matters-for-a-smooth-move",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.92,
       "title": "Flexible Moving Services in Singapore: Why Timing Matters for a Smooth Move | Moving Solutions",
       "description": "Planning a move in Singapore is not just about packing boxes and transporting furniture. One of the biggest challenges many [\u2026]",
       "canonical": "https://www.movings.sg/blog/flexible-moving-services-in-singapore-why-timing-matters-for-a-smooth-move",
@@ -606,7 +606,7 @@
     {
       "path": "/blog/bto-hdb-moving-in-singapore-what-to-expect-and-how-to-prepare",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.9,
       "title": "BTO HDB Moving in Singapore: What to Expect and How to Prepare | Moving Solutions",
       "description": "Planning your BTO HDB move in Singapore? Discover tips on packing, renovation timing, and moving services for a smooth relocation.",
       "canonical": "https://www.movings.sg/blog/bto-hdb-moving-in-singapore-what-to-expect-and-how-to-prepare",
@@ -620,7 +620,7 @@
     {
       "path": "/blog/using-storage-during-office-relocation-in-singapore",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.83,
       "title": "Using Storage During Office Relocation in Singapore | Moving Solutions",
       "description": "Planning an office relocation in Singapore? Learn when temporary storage helps, what to store, and how to coordinate collection and delivery during the move.",
       "canonical": "https://www.movings.sg/blog/using-storage-during-office-relocation-in-singapore",
@@ -634,7 +634,7 @@
     {
       "path": "/blog/just-moved-house-in-singapore-heres-what-to-expect",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.9,
       "title": "Just Moved House in Singapore? Here\u2019s What to Expect | Moving Solutions",
       "description": "Moving into a new home is exciting. You\u2019ve finally completed the packing, the move, and the long day of transporting [\u2026]",
       "canonical": "https://www.movings.sg/blog/just-moved-house-in-singapore-heres-what-to-expect",
@@ -648,7 +648,7 @@
     {
       "path": "/blog/self-storage-vs-on-demand-storage-in-singapore-which-option-is-better-for-your-move",
       "status": 200,
-      "seconds": 0.05,
+      "seconds": 0.93,
       "title": "Self Storage vs On-Demand Storage in Singapore: Which Option Is Better for Your Move? | Moving Solutions",
       "description": "Compare self-storage and on-demand storage in Singapore, including access, transport and convenience, to choose the right option for your move.",
       "canonical": "https://www.movings.sg/blog/self-storage-vs-on-demand-storage-in-singapore-which-option-is-better-for-your-move",
@@ -662,7 +662,7 @@
     {
       "path": "/blog/moving-solutions-moving-heavy-printers-and-copiers-safely",
       "status": 200,
-      "seconds": 0.05,
+      "seconds": 0.62,
       "title": "Moving Solutions: Moving Heavy Printers and Copiers Safely | Moving Solutions",
       "description": "Heavy office equipment like printers and copiers can be tricky to move. They are bulky, fragile, and often expensive. If [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-solutions-moving-heavy-printers-and-copiers-safely",
@@ -676,7 +676,7 @@
     {
       "path": "/blog/end-to-end-moving-services-what-all-in-one-really-means",
       "status": 200,
-      "seconds": 0.06,
+      "seconds": 1.25,
       "title": "End-to-End Moving Services: What \u201cAll-in-One\u201d Really Means | Moving Solutions",
       "description": "\u201cEnd-to-end moving\u201d is a term you see everywhere in Singapore\u2019s moving industry. Almost every mover claims to offer it, but [\u2026]",
       "canonical": "https://www.movings.sg/blog/end-to-end-moving-services-what-all-in-one-really-means",
@@ -690,7 +690,7 @@
     {
       "path": "/blog/moving-company-checklist-what-to-ask-before-you-book-in-singapore",
       "status": 200,
-      "seconds": 0.1,
+      "seconds": 0.91,
       "title": "Moving Company Checklist: What to Ask Before You Book in Singapore | Moving Solutions",
       "description": "Booking a mover in Singapore can feel overwhelming. With so many companies offering different prices and promises, it\u2019s hard to [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-company-checklist-what-to-ask-before-you-book-in-singapore",
@@ -704,7 +704,7 @@
     {
       "path": "/blog/what-to-store-vs-dispose-during-a-year-end-move-in-singapore",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.93,
       "title": "What to Store vs Dispose During a Year-End Move in Singapore | Moving Solutions",
       "description": "Year-end moves in Singapore can feel hectic, especially with festive activities, office deadlines, and family gatherings all happening at once. [\u2026]",
       "canonical": "https://www.movings.sg/blog/what-to-store-vs-dispose-during-a-year-end-move-in-singapore",
@@ -718,7 +718,7 @@
     {
       "path": "/blog/how-to-book-a-reliable-mover-during-peak-season-in-singapore",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.89,
       "title": "How to Book a Reliable Mover During Peak Season in Singapore | Moving Solutions",
       "description": "Moving during peak season in Singapore can feel overwhelming. With school holidays, year-end moves, and condo booking restrictions, movers\u2019 schedules [\u2026]",
       "canonical": "https://www.movings.sg/blog/how-to-book-a-reliable-mover-during-peak-season-in-singapore",
@@ -732,7 +732,7 @@
     {
       "path": "/blog/new-in-singapore-how-to-move-homes",
       "status": 200,
-      "seconds": 0.05,
+      "seconds": 1.29,
       "title": "New in Singapore? How to Move Homes Without the Hassle | Moving Solutions",
       "description": "Moving homes in Singapore can feel overwhelming, especially if you are new to the country. Between navigating HDBs, condos, and [\u2026]",
       "canonical": "https://www.movings.sg/blog/new-in-singapore-how-to-move-homes",
@@ -746,7 +746,7 @@
     {
       "path": "/blog/the-complete-guide-to-moving-sofa-beds-safely",
       "status": 200,
-      "seconds": 0.07,
+      "seconds": 1.08,
       "title": "The Complete Guide to Moving Sofa Beds Safely | Moving Solutions",
       "description": "Sofa beds are one of the trickiest pieces of furniture to move. They are heavy, bulky, and have internal mechanisms [\u2026]",
       "canonical": "https://www.movings.sg/blog/the-complete-guide-to-moving-sofa-beds-safely",
@@ -760,7 +760,7 @@
     {
       "path": "/blog/how-to-pack-fragile-items-hdb-condo-move-singapore",
       "status": 200,
-      "seconds": 0.05,
+      "seconds": 1.29,
       "title": "How to Pack Fragile Items Safely for HDB and Condo Moves | Moving Solutions",
       "description": "Moving into a new home in Singapore can be exciting, whether it\u2019s an HDB flat, a condo, or a private [\u2026]",
       "canonical": "https://www.movings.sg/blog/how-to-pack-fragile-items-hdb-condo-move-singapore",
@@ -774,7 +774,7 @@
     {
       "path": "/blog/best-moving-company-in-singapore",
       "status": 200,
-      "seconds": 0.1,
+      "seconds": 0.76,
       "title": "Best Moving Company in Singapore | Moving Solutions",
       "description": "Best Moving Company in Singapore: Moving Solutions for Homes and Offices Moving Solutions the Best Moving Company in Singapore. Whether [\u2026]",
       "canonical": "https://www.movings.sg/blog/best-moving-company-in-singapore",
@@ -788,7 +788,7 @@
     {
       "path": "/blog/packing-services-singapore",
       "status": 200,
-      "seconds": 0.12,
+      "seconds": 0.65,
       "title": "Packing Services Singapore \u2013 What\u2019s Included | Moving Solutions",
       "description": "When hiring a professional moving company like Moving Solutions, packing services are a key part of ensuring a smooth, damage-free [\u2026]",
       "canonical": "https://www.movings.sg/blog/packing-services-singapore",
@@ -802,7 +802,7 @@
     {
       "path": "/blog/moving-cost-in-singapore-pricing-guide",
       "status": 200,
-      "seconds": 0.12,
+      "seconds": 0.51,
       "title": "Mover Price Singapore: Moving Cost And Pricing Guide | Moving Solutions",
       "description": "Mover Price Singapore: Moving Cost And Pricing Guide If you are comparing mover price Singapore searches such as movers Singapore [\u2026]",
       "canonical": "https://www.movings.sg/blog/moving-cost-in-singapore-pricing-guide",
@@ -816,7 +816,7 @@
     {
       "path": "/blog/midnight-movers-singapore",
       "status": 200,
-      "seconds": 0.07,
+      "seconds": 0.37,
       "title": "Midnight Movers in Singapore: Move After Hours Anytime You Need | Moving Solutions",
       "description": "Most moving companies stop by 6 PM, but life does not always follow a schedule. If you face an urgent [\u2026]",
       "canonical": "https://www.movings.sg/blog/midnight-movers-singapore",
@@ -830,7 +830,7 @@
     {
       "path": "/blog/movers-in-singapore-charge-hidden-fees-and-how-to-avoid-them",
       "status": 200,
-      "seconds": 0.08,
+      "seconds": 0.68,
       "title": "Why Some Movers in Singapore Charge Hidden Fees \u2013 And How to Avoid Them | Moving Solutions",
       "description": "Hiring a moving company in Singapore? You\u2019ve probably come across ads that scream \u201cOnly $288 per truck!\u201d While the offer [\u2026]",
       "canonical": "https://www.movings.sg/blog/movers-in-singapore-charge-hidden-fees-and-how-to-avoid-them",
@@ -844,7 +844,7 @@
     {
       "path": "/blog/no-lift-access-hire-experienced-movers-for-stairs-climb-in-singapore",
       "status": 200,
-      "seconds": 0.07,
+      "seconds": 0.68,
       "title": "No Lift Access? Hire Experienced Movers for Stairs Climb in Singapore | Moving Solutions",
       "description": "Need to move items up or down multiple floors with no lift access? At Moving Solutions, we provide professional movers [\u2026]",
       "canonical": "https://www.movings.sg/blog/no-lift-access-hire-experienced-movers-for-stairs-climb-in-singapore",
@@ -858,7 +858,7 @@
     {
       "path": "/blog/hire-reliable-movers-with-manpower-only-no-vehicle-needed",
       "status": 200,
-      "seconds": 0.09,
+      "seconds": 0.48,
       "title": "Hire Reliable Movers with Manpower Only \u2013 No Vehicle Needed | Moving Solutions",
       "description": "Shifting just a few blocks away? Moving to another unit in the same condo or HDB block? At Moving Solutions, [\u2026]",
       "canonical": "https://www.movings.sg/blog/hire-reliable-movers-with-manpower-only-no-vehicle-needed",
@@ -872,7 +872,7 @@
     {
       "path": "/blog/same-day-movers-singapore",
       "status": 200,
-      "seconds": 0.07,
+      "seconds": 0.63,
       "title": "Hire Same Day Movers in Singapore \u2013 Last Minute Available | Moving Solutions",
       "description": "Need to move today? Don\u2019t panic \u2014 Moving Solutions offers same day movers in Singapore who are fast, professional, and [\u2026]",
       "canonical": "https://www.movings.sg/blog/same-day-movers-singapore",

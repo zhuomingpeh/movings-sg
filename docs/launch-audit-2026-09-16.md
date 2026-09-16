@@ -1,6 +1,6 @@
 # Movings.sg launch audit — 16 September 2026
 
-The new website is deployed on movings-sg.vercel.app. The public business domain www.movings.sg still serves WordPress. This audit does not change DNS or Loanify.
+This is the pre-launch audit. The website has since launched on www.movings.sg; see [the launch completion record](launch-completion-2026-09-16.md) for current DNS, deployment and email status. Findings below retain their original verification context.
 
 ## Completed fixes
 - Retired /movers-directory and /60-movers-in-singapore and the three directory/list blog articles: Movers Singapore – Top 10 Best Moving Companies; List of Movers in Singapore; Top 10 Storage Solutions in Singapore. All three are retained as Draft in Notion. 39 other posts remain published.
@@ -15,14 +15,16 @@ The new website is deployed on movings-sg.vercel.app. The public business domain
 
 ## Verification
 - Production build passed; TypeScript passed. ESLint has no errors, with two deliberate native-image optimisation warnings for Notion images.
-- 243/243 redirect and retirement checks passed locally. Live checks are run after deployment.
-- Crawl: 63 pages (24 site/guide/index pages plus 39 blog posts), 80 additional internal link/image targets. All return success; no duplicate titles/descriptions; one H1 per page; JSON-LD parses; no missing image alt attributes. An empty decorative alt is not the same as a descriptive alt.
+- 243/243 redirect and retirement checks passed both locally and on https://movings-sg.vercel.app after deployment 64b21ca. Verified live 410 retirement responses, 39 published blog cards, noindex headers on the Vercel alias, and the updated llms.txt.
+- Local and live crawl: 63 pages (24 site/guide/index pages plus 39 blog posts), 80 additional internal link/image targets. All return success; no duplicate titles/descriptions; one H1 per page; JSON-LD parses; no missing image alt attributes. An empty decorative alt is not the same as a descriptive alt.
 - Mobile browser inspection at 390 × 844: homepage, blog cards and menu; tested menu navigation. Desktop form failure tested with dummy local data and no email configured. No real email was sent.
 - Mobile Lighthouse local homepage: performance 95, accessibility 100, best practices 100, SEO 100; LCP approximately 3.0 seconds, CLS 0, TBT 30 ms. A synthetic local result, not production Core Web Vitals or a ranking score. Lighthouse produced a valid report but its Windows temporary-profile cleanup returned EPERM. A small menu fix followed this measurement.
 - npm production-dependency audit reported zero known vulnerabilities at this check. This is not a penetration test.
 - Read-only Vercel check: only Notion environment variables are configured; only movings-sg.vercel.app is attached to this project. No email provider configuration exists in this project.
 
 ## Required before the business-domain launch
+Update, 16 September: registrar delegation has propagated to Vercel DNS and Resend now shows movings.sg Verified. Both business-domain hostnames are attached to the Movings Vercel project, with apex redirecting to www once website DNS is switched. Website DNS still points to Exabytes. Public MX, mail and webmail records retain Exabytes routing; webmail HTTPS returned 200 with certificate validation enabled. The user confirmed contact@movings.sg and webmail use. A site-specific WordPress backup was started, but completion must be checked after Plesk sign-in. The Movings-only sending-key form is prepared and awaiting credential-creation confirmation; no key or email environment variables have been added yet.
+
 1. **DNS access and launch timing.** Identify the DNS host and confirm www.movings.sg as canonical. Add both hostnames to this Vercel project, configure HTTPS and apex-to-www redirects, preserve all mail records, then verify HTTP/HTTPS/www/non-www variants. Do not alter Loanify project settings.
 2. **Full WordPress backup.** Need database plus wp-content/uploads, themes and plugins. The existing 42-post export and 58 copied images are not a full backup. Keep WordPress available for rollback for at least 90 days; do not delete it.
 3. **Email setup.** Confirm the enquiry recipient (currently contact@movings.sg) and sender domain. Configure a verified Resend sender and RESEND_API_KEY, EMAIL_FROM, LEADS_EMAIL_TO on Movings only. Then send an explicitly authorised test and confirm inbox delivery. Current failure handling is honest but does not make email work.
