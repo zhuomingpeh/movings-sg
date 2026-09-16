@@ -14,8 +14,9 @@
 - Existing SPF, DKIM, DMARC, Google verification and other retained mail records were compared exactly before/after cutover and are unchanged.
 - FTP now aliases ipv4.movings.sg, which retains the old server address. IMAPS/POP3S/SMTPS SRV discovery targets sp131.sgcloudhosting.cloud on ports 993/995/465; all three TLS hostname checks passed. These no longer follow the website's apex address to Vercel.
 - Resend domain movings.sg is verified. The new `Movings website enquiries` key has sending access restricted to movings.sg. It is saved as an encrypted production environment variable only in the Movings project, with EMAIL_FROM and LEADS_EMAIL_TO. No key is stored in this repository.
-- Form test submitted successfully and redirected to /thank-you. Resend accepted the message to contact@movings.sg; delivery status is still being checked. Test message ID: 61a711ad-29b2-478b-bb0b-fbc9fa8d188b.
-- The user confirmed the backup is OK before website cutover. Backup archive contents were not independently inspected in this session. Keep Exabytes hosting and the old WordPress files available; the mailbox still depends on Exabytes.
+- Form test submitted successfully and redirected to /thank-you. Resend accepted the message to contact@movings.sg, and the user subsequently confirmed receipt in the mailbox. End-to-end enquiry delivery is verified. Test message ID: 61a711ad-29b2-478b-bb0b-fbc9fa8d188b.
+- Plesk greylisting is enabled for movings.sg and was left enabled. This may explain the initial delivery delay; the exact cause was not established from server logs.
+- The user confirmed the backup is OK before website cutover. After restoring Plesk access, its completion notification confirmed the site was backed up on 2026-09-16 at 17:06:27. Backup archive contents were not independently inspected. Keep Exabytes hosting and the old WordPress files available; the mailbox still depends on Exabytes.
 - Loanify, other domains, and existing Resend keys were not modified.
 
 ## Owner follow-up
