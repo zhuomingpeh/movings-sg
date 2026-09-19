@@ -1,7 +1,7 @@
 # Publishing the Movings blog with Notion
 
 Database: https://app.notion.com/p/3dcb3c5e8efd8039ab63cc899ae98eae
-Website: https://movings-sg.vercel.app/blog
+Website: https://www.movings.sg/blog
 
 ## Write a post
 1. Add a row in the Moving Solutions database.
@@ -11,6 +11,11 @@ Website: https://movings-sg.vercel.app/blog
 5. Set Status to Published. Draft, blank status, duplicate or invalid slugs, and future dates do not appear publicly.
 
 The site checks cached Notion data after 60 seconds when visited. The first visit after expiry can see the previous version while refresh runs; refresh again shortly afterwards. There is no webhook or scheduled background job and no manual deployment needed. Published edits work the same way. To unpublish, set Draft and allow the cache to refresh. Keep Slug stable after publication to avoid broken links.
+
+## Sitemap updates
+Published Notion posts automatically enter https://www.movings.sg/sitemap.xml through the same cached query. Drafts, future-dated posts, invalid/duplicate slugs and retired posts are excluded. No deployment or manual sitemap edit is needed for a normal blog post. Allow the 60-second cache to expire and a subsequent request to refresh it; Google indexing is a separate process.
+
+Standalone service pages and guides are maintained in the website code. Add an indexable page to src/lib/routes.ts when creating it, then deploy: the sitemap includes that route automatically. Creating a random page elsewhere in Notion does not create a website page or sitemap entry.
 
 ## Original WordPress posts
 42 public posts were imported, with WordPress ID and Original URL retained. Original content responses and converted Markdown are backed up locally in backups/wordpress (Git-ignored); this is NOT a full database/WordPress backup and does not include drafts or private posts.
