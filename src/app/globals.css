@@ -1121,6 +1121,9 @@ article h1 {
 .blog-contact .enquiry-form { margin-top: 28px; max-width: none; }
 .blog-contact input, .blog-contact textarea { background: white; min-width: 0; width: 100%; }
 .blog-reviews .testimonial-grid { grid-template-columns: 1fr; margin-bottom: 24px; }
+.trustindex-reviews { min-height: 340px; width: 100%; min-width: 0; overflow-x: clip; margin-bottom: 20px; }
+@media (max-width: 600px) { .trustindex-reviews { min-height: 490px; } }
+.blog-reviews { min-width: 0; }
 .blog-body img {
   height: auto;
   max-width: 100%;

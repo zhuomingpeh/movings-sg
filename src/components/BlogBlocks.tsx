@@ -1,7 +1,7 @@
 import type { BlogBlock } from "@/lib/blog-shortcodes";
 import { BUSINESS, SOCIAL } from "@/lib/site";
 import EnquiryForm from "./EnquiryForm";
-import Testimonials from "./Testimonials";
+import TrustindexReviews from "./TrustindexReviews";
 import WhatsAppCta from "./WhatsAppCta";
 import Link from "next/link";
 
@@ -12,8 +12,7 @@ export default function BlogBlocks({ blocks }: { blocks: BlogBlock[] }) {
       <section key={index} className="blog-widget blog-reviews" aria-label="Customer reviews">
         <p className="eyebrow">WHAT CUSTOMERS SAY</p>
         <h2>Moving stories from our customers</h2>
-        <p>Selected Google reviews shared by our customers.</p>
-        <Testimonials limit={3} />
+        <TrustindexReviews />
         <a href={SOCIAL.google} target="_blank" rel="noopener noreferrer" className="text-link">See reviews on Google</a>
       </section>
     );

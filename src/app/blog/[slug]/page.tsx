@@ -53,6 +53,7 @@ export default async function Article({ params }: Props) {
       )}
       {p.cover && <img src={p.cover} alt="" className="article-cover" />}
       <BlogBlocks blocks={p.blocks} />
+      {!p.blocks.some(block => block.type === "reviews") && <BlogBlocks blocks={[{ type: "reviews" }]} />}
       <div className="mt-12 border-t pt-8">
         <h2 className="text-2xl font-semibold mb-4">Planning your move?</h2>
         <WhatsAppCta />

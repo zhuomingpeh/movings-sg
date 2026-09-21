@@ -18,6 +18,13 @@ export function parseBlogBlocks(markdown: string, sanitize: (html: string) => st
     pending = [];
   }
   for (const token of tokens) {
+    // WordPress imports stored entire Trustindex widgets as fenced text.
+    // Match their specific signature, never arbitrary review-related prose.
+    if (token.type === "code" && /^EXCELLENT\s+Based on \d+ reviews\b/.test(token.text.trim()) && token.text.includes("Trustindex verifies that the original source of the review is Google.")) {
+      flush();
+      if (!blocks.some(block => block.type === "reviews")) blocks.push({ type: "reviews" });
+      continue;
+    }
     const plain = token.type === "paragraph" && token.tokens?.every(
       (inline) => inline.type === "text" || inline.type === "escape",
     );
@@ -26,7 +33,9 @@ export function parseBlogBlocks(markdown: string, sanitize: (html: string) => st
       : null;
     if (match) {
       flush();
-      blocks.push({ type: match[1] as "contact" | "contact-form" | "reviews" });
+      if (match[1] !== "reviews" || !blocks.some(block => block.type === "reviews")) {
+        blocks.push({ type: match[1] as "contact" | "contact-form" | "reviews" });
+      }
     } else pending.push(token);
   }
   flush();

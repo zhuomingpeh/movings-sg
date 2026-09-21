@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ClientLogos from "@/components/ClientLogos";
-import Testimonials from "@/components/Testimonials";
+import TrustindexReviews from "@/components/TrustindexReviews";
 import EnquiryForm from "@/components/EnquiryForm";
 import WhatsAppCta from "@/components/WhatsAppCta";
 import JsonLd from "@/components/JsonLd";
@@ -328,7 +328,7 @@ export default function Page() {
             See all reviews on Google <ArrowUpRight />
           </a>
         </div>
-        <Testimonials limit={3} />
+        <TrustindexReviews />
       </section>
       <section className="shell home-section">
         <div className="quote-panel">

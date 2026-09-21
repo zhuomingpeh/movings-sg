@@ -20,11 +20,13 @@ Put one of these shortcodes in its own **plain text paragraph** inside your Noti
 | --- | --- |
 | `[contact]` | Blue contact panel with WhatsApp, phone, email and contact-page links. |
 | `[contact-form]` | The contact panel plus the working enquiry form. |
-| `[reviews]` | Three existing customer Google testimonials and a link to the Google profile. |
+| `[reviews]` | Live Trustindex Google reviews widget and a link to the Google profile. |
 
-For example: write your introduction, add a new paragraph containing `[reviews]`, continue your article, then add `[contact-form]` near the end. Use normal text, **not a Notion code block**, heading, list, quote or inline code. The shortcode must be the only text in that paragraph. Notion shows the text; the website renders the section after the usual cache refresh. Delete the paragraph to remove the section. Existing articles are unchanged unless you add a shortcode. These work in blog bodies, not database descriptions or titles.
+For example: write your introduction, add a new paragraph containing `[reviews]`, continue your article, then add `[contact-form]` near the end. Use normal text, **not a Notion code block**, heading, list, quote or inline code. The shortcode must be the only text in that paragraph. Notion shows the text; the website renders the section after the usual cache refresh. Delete a contact shortcode to remove that section. These work in blog bodies, not database descriptions or titles.
 
-Reviews currently reuse the site's curated testimonials; they do not automatically import new Google reviews. To enable a live Trustindex widget, provide its website embed code from your Trustindex account. Do not paste JavaScript into Notion: scripts are removed for safety. Site pages can reuse the same components through a code change.
+Every blog automatically includes one review widget at the end. Adding `[reviews]` moves it to that location instead. Duplicate review shortcodes are ignored. Four imported WordPress review dumps are automatically replaced at their existing positions, preserving the article text and the original Notion content. You can replace the old review code block in Notion with a plain `[reviews]` paragraph for easier editing.
+
+The homepage uses the same Trustindex widget. Manage its layout and review selection in Trustindex; new reviews appear according to Trustindex's sync schedule. The script is loaded once per browser document, only when a widget comes within 250px of the viewport. Space is reserved to reduce layout movement, and the Google link remains available if the widget is blocked. Do not paste the script into Notion. No manual redeployment is needed when editing blog shortcodes.
 
 Form submissions use the existing enquiry email delivery and success tracking. One form per article is recommended, although multiple forms have unique accessible labels.
 
