@@ -2,6 +2,7 @@ import { connection } from "next/server";
 import "server-only";
 import { cache } from "react";
 import { marked } from "marked";
+import { parseBlogBlocks } from "./blog-shortcodes";
 import sanitizeHtml from "sanitize-html";
 import retiredSlugs from "../../content/retired-blog-slugs.json";
 import imported from "../../content/blog-import.json";
@@ -107,7 +108,7 @@ export const getBlogPost = cache(async (slug: string) => {
     throw new Error(
       "This Notion article contains unsupported or incomplete content",
     );
-  return { ...post, html: renderBlogMarkdown(content.markdown) };
+  return { ...post, blocks: parseBlogBlocks(content.markdown, sanitizeBlogHtml) };
 });
 const legacy = new Map(
   imported.map((p) => [p.originalPath.replace(/\/$/, ""), `/blog/${p.slug}`]),
@@ -133,6 +134,9 @@ function localLink(url: string) {
 }
 export function renderBlogMarkdown(markdown: string) {
   const raw = marked.parse(markdown, { async: false }) as string;
+  return sanitizeBlogHtml(raw);
+}
+function sanitizeBlogHtml(raw: string) {
   return sanitizeHtml(raw, {
     allowedTags: [
       ...sanitizeHtml.defaults.allowedTags,

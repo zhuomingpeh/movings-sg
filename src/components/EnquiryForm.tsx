@@ -1,11 +1,12 @@
 "use client";
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useId } from "react";
 import { useRouter } from "next/navigation";
 import { submitEnquiry } from "@/app/actions/enquiry";
 
 export default function EnquiryForm() {
   const [state, action, pending] = useActionState(submitEnquiry, {error: ""});
   const router = useRouter();
+  const formId = useId();
   const tracked = useRef(false);
   useEffect(() => {
     if (!state.success || tracked.current) return;
@@ -26,13 +27,13 @@ export default function EnquiryForm() {
     <form action={action} className="enquiry-form">
       <div hidden aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <div className="enquiry-row">
-        <label htmlFor="name">Name</label>
-        <input id="name" name="name" maxLength={100} required autoComplete="name" />
+        <label htmlFor={formId + "-name"}>Name</label>
+        <input id={formId + "-name"} name="name" maxLength={100} required autoComplete="name" />
       </div>
       <div className="enquiry-row">
-        <label htmlFor="mobile">Mobile number</label>
+        <label htmlFor={formId + "-mobile"}>Mobile number</label>
         <input
-          id="mobile"
+          id={formId + "-mobile"}
           name="mobile"
           maxLength={25}
           type="tel"
@@ -44,13 +45,13 @@ export default function EnquiryForm() {
         />
       </div>
       <div className="enquiry-row">
-        <label htmlFor="contact">Email (optional)</label>
-        <input id="contact" name="contact" maxLength={254} type="email" autoComplete="email" />
+        <label htmlFor={formId + "-contact"}>Email (optional)</label>
+        <input id={formId + "-contact"} name="contact" maxLength={254} type="email" autoComplete="email" />
       </div>
       <div className="enquiry-row">
-        <label htmlFor="message">Tell us about your move</label>
+        <label htmlFor={formId + "-message"}>Tell us about your move</label>
         <textarea
-          id="message"
+          id={formId + "-message"}
           name="message"
           maxLength={5000}
           rows={4}

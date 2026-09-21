@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogPost } from "@/lib/notion-blog";
 import WhatsAppCta from "@/components/WhatsAppCta";
+import BlogBlocks from "@/components/BlogBlocks";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 type Props = { params: Promise<{ slug: string }> };
@@ -51,10 +52,7 @@ export default async function Article({ params }: Props) {
         </time>
       )}
       {p.cover && <img src={p.cover} alt="" className="article-cover" />}
-      <div
-        className="prose prose-neutral max-w-none blog-body"
-        dangerouslySetInnerHTML={{ __html: p.html }}
-      />
+      <BlogBlocks blocks={p.blocks} />
       <div className="mt-12 border-t pt-8">
         <h2 className="text-2xl font-semibold mb-4">Planning your move?</h2>
         <WhatsAppCta />

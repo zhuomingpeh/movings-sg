@@ -12,6 +12,22 @@ Website: https://www.movings.sg/blog
 
 The site checks cached Notion data after 60 seconds when visited. The first visit after expiry can see the previous version while refresh runs; refresh again shortly afterwards. There is no webhook or scheduled background job and no manual deployment needed. Published edits work the same way. To unpublish, set Draft and allow the cache to refresh. Keep Slug stable after publication to avoid broken links.
 
+## Add reviews or a contact section
+
+Put one of these shortcodes in its own **plain text paragraph** inside your Notion article:
+
+| Shortcode | What appears on the website |
+| --- | --- |
+| `[contact]` | Blue contact panel with WhatsApp, phone, email and contact-page links. |
+| `[contact-form]` | The contact panel plus the working enquiry form. |
+| `[reviews]` | Three existing customer Google testimonials and a link to the Google profile. |
+
+For example: write your introduction, add a new paragraph containing `[reviews]`, continue your article, then add `[contact-form]` near the end. Use normal text, **not a Notion code block**, heading, list, quote or inline code. The shortcode must be the only text in that paragraph. Notion shows the text; the website renders the section after the usual cache refresh. Delete the paragraph to remove the section. Existing articles are unchanged unless you add a shortcode. These work in blog bodies, not database descriptions or titles.
+
+Reviews currently reuse the site's curated testimonials; they do not automatically import new Google reviews. To enable a live Trustindex widget, provide its website embed code from your Trustindex account. Do not paste JavaScript into Notion: scripts are removed for safety. Site pages can reuse the same components through a code change.
+
+Form submissions use the existing enquiry email delivery and success tracking. One form per article is recommended, although multiple forms have unique accessible labels.
+
 ## Sitemap updates
 Published Notion posts automatically enter https://www.movings.sg/sitemap.xml through the same cached query. Drafts, future-dated posts, invalid/duplicate slugs and retired posts are excluded. No deployment or manual sitemap edit is needed for a normal blog post. Allow the 60-second cache to expire and a subsequent request to refresh it; Google indexing is a separate process.
 
