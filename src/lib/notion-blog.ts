@@ -3,6 +3,7 @@ import "server-only";
 import { cache } from "react";
 import { marked } from "marked";
 import { parseBlogBlocks } from "./blog-shortcodes";
+import { prepareNotionMarkdown } from "./notion-markdown";
 import sanitizeHtml from "sanitize-html";
 import retiredSlugs from "../../content/retired-blog-slugs.json";
 import imported from "../../content/blog-import.json";
@@ -104,11 +105,8 @@ export const getBlogPost = cache(async (slug: string) => {
   const post = (await getBlogPosts()).find((p) => p.slug === slug);
   if (!post) return null;
   const content = await api(`pages/${post.id}/markdown`);
-  if (content.truncated || content.unknown_block_ids?.length)
-    throw new Error(
-      "This Notion article contains unsupported or incomplete content",
-    );
-  return { ...post, blocks: parseBlogBlocks(content.markdown, sanitizeBlogHtml) };
+  const markdown = await prepareNotionMarkdown(content, id => api(`blocks/${id}`));
+  return { ...post, blocks: parseBlogBlocks(markdown, sanitizeBlogHtml) };
 });
 const legacy = new Map(
   imported.map((p) => [p.originalPath.replace(/\/$/, ""), `/blog/${p.slug}`]),

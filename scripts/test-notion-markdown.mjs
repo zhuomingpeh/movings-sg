@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { prepareNotionMarkdown } from '../src/lib/notion-markdown.ts';
+import { marked } from 'marked';
+const button = async () => ({ type: 'unsupported', unsupported: { block_type: 'button' }, has_children: false });
+const input = { truncated: true, unknown_block_ids: ['abc-def'], markdown: '<columns>\n\t<column ratio="50">\n\t\t## Full truck\n\t\t- Wrapping\n\t\t<unknown url="https://app.notion.com/page#abcdef" alt="button"/>\n\t</column>\n\t<column>\n\t\t## Half truck\n\t</column>\n</columns>\nFinal paragraph' };
+const result = await prepareNotionMarkdown(input, button);
+const html = marked.parse(result);
+assert.ok(html.includes('<h2>Full truck</h2>') && html.includes('<h2>Half truck</h2>'));
+assert.ok(html.includes('href="/contact"') && html.includes('Final paragraph'));
+assert.ok(!html.includes('<pre>') && !html.includes('<column'));
+await assert.rejects(prepareNotionMarkdown({...input, unknown_block_ids: []}, button));
+await assert.rejects(prepareNotionMarkdown(input, async () => ({type:'unsupported', unsupported:{block_type:'embed'}})));
+await assert.rejects(prepareNotionMarkdown({...input, unknown_block_ids:['different-id']}, button));
+const code = '```html\n<columns>\n<column>\nexample\n</column>\n</columns>\n```';
+assert.equal(await prepareNotionMarkdown({markdown:code}, button), code);
+console.log('Notion columns, button fallback, code preservation and incomplete-content checks passed.');
