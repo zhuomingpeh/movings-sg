@@ -5,6 +5,7 @@ import sanitizeHtml from 'sanitize-html';
 const parse = (text) => parseBlogBlocks(text, sanitizeHtml);
 assert.deepEqual(parse('[contact]\n\n[reviews]\n\n[contact-form]').map(b => b.type), ['contact', 'reviews', 'contact-form']);
 assert.deepEqual(parse(String.raw`\[contact\]`).map(b => b.type), ['contact']);
+assert.deepEqual(parse(String.raw`\[contact-form\]<br>`).map(b => b.type), ['contact-form']);
 for (const input of ['`[contact]`', '```\n[reviews]\n```', '> [reviews]', '- [contact]', '## [reviews]', 'Text [contact]', '[unknown]', '[reviews](https://example.com)', '<div>[reviews]</div>']) {
   assert.ok(parse(input).every(b => b.type === 'html'), input);
 }

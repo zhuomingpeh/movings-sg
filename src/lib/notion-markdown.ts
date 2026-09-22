@@ -23,22 +23,22 @@ export async function prepareNotionMarkdown(content: MarkdownResponse, getBlock:
   }
   if (/<unknown\b/.test(markdown)) throw new Error("Unresolved Notion content");
 
-  // Notion columns are indented XML wrappers, not HTML containing markdown.
-  // Stack the contents in reading order and preserve indentation inside them.
-  let depth = 0;
+  // Notion separates blocks with ONE newline; CommonMark merges these into
+  // paragraphs. Restore boundaries without changing fenced code or tables.
   let fence = "";
+  let table = false;
   return markdown.split("\n").map(line => {
-    const dedented = line.replace(new RegExp(`^\\t{0,${depth}}`), "");
-    const marker = /^\s*(`{3,}|~{3,})/.exec(dedented)?.[1];
+    const marker = /^\s*(`{3,}|~{3,})/.exec(line)?.[1];
     if (marker) {
-      if (!fence) fence = marker;
-      else if (marker[0] === fence[0] && marker.length >= fence.length) fence = "";
-      return dedented;
+      if (!fence) { fence = marker; return "\n" + line; }
+      if (marker[0] === fence[0] && marker.length >= fence.length) { fence = ""; return line + "\n"; }
+      return line;
     }
-    if (fence) return dedented;
-    if (/^\s*<(?:columns|column)(?:\s[^>]*)?>\s*$/.test(line)) { depth++; return ""; }
-    if (/^\s*<\/(?:columns|column)>\s*$/.test(line)) { depth = Math.max(0, depth - 1); return ""; }
+    if (fence) return line;
+    if (/^\s*<table\b/.test(line)) table = true;
+    if (table) { if (/<\/table>/.test(line)) table = false; return line; }
+    if (/^\s*\|/.test(line)) return line;
     if (/^\s*<empty-block\s*\/>\s*$/.test(line)) return "";
-    return dedented;
+    return line + "\n";
   }).join("\n");
 }

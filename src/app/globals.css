@@ -1124,6 +1124,10 @@ article h1 {
 .trustindex-reviews { min-height: 340px; width: 100%; min-width: 0; overflow-x: clip; margin-bottom: 20px; }
 @media (max-width: 600px) { .trustindex-reviews { min-height: 490px; } }
 .blog-reviews { min-width: 0; }
+.blog-columns { display: grid; gap: 28px; margin: 28px 0; }
+.blog-column { min-width: 0; }
+.blog-column > .blog-body:first-child { margin-top: 0; }
+@media (max-width: 640px) { .blog-columns { grid-template-columns: minmax(0, 1fr) !important; gap: 20px; } }
 .blog-body img {
   height: auto;
   max-width: 100%;

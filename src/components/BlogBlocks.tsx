@@ -7,6 +7,9 @@ import Link from "next/link";
 
 export default function BlogBlocks({ blocks }: { blocks: BlogBlock[] }) {
   return blocks.map((block, index) => {
+    if (block.type === "columns") return <div key={index} className="blog-columns" style={{ gridTemplateColumns: block.columns.map(column => `minmax(0, ${column.ratio}fr)`).join(" ") }}>
+      {block.columns.map((column, columnIndex) => <div className="blog-column" key={columnIndex}><BlogBlocks blocks={column.blocks} /></div>)}
+    </div>;
     if (block.type === "html") return <div key={index} className="prose prose-neutral max-w-none blog-body" dangerouslySetInnerHTML={{ __html: block.html }} />;
     if (block.type === "reviews") return (
       <section key={index} className="blog-widget blog-reviews" aria-label="Customer reviews">
