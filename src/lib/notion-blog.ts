@@ -4,6 +4,7 @@ import { cache } from "react";
 import { marked } from "marked";
 import { parseBlogBlocks } from "./blog-shortcodes";
 import { prepareNotionMarkdown } from "./notion-markdown";
+import { responsiveImageAttributes } from "./blog-image";
 import sanitizeHtml from "sanitize-html";
 import retiredSlugs from "../../content/retired-blog-slugs.json";
 import imported from "../../content/blog-import.json";
@@ -144,7 +145,7 @@ function sanitizeBlogHtml(raw: string) {
     ],
     allowedAttributes: {
       a: ["href", "title"],
-      img: ["src", "alt", "title", "loading", "decoding"],
+      img: ["src", "srcset", "sizes", "alt", "title", "loading", "decoding"],
       th: ["colspan", "rowspan"],
       td: ["colspan", "rowspan"],
     },
@@ -154,15 +155,19 @@ function sanitizeBlogHtml(raw: string) {
         tagName: "a",
         attribs: { ...attrs, href: localLink(attrs.href || "") },
       }),
-      img: (_tag, attrs) => ({
-        tagName: "img",
-        attribs: {
-          ...attrs,
-          src: localLink(attrs.src || ""),
-          loading: "lazy",
-          decoding: "async",
-        },
-      }),
+      img: (_tag, attrs) => {
+        const src = localLink(attrs.src || "");
+        const optimized = responsiveImageAttributes(src);
+        return {
+          tagName: "img",
+          attribs: {
+            ...attrs,
+            ...(Object.keys(optimized).length ? optimized : { src }),
+            loading: "lazy",
+            decoding: "async",
+          },
+        };
+      },
     },
   });
 }

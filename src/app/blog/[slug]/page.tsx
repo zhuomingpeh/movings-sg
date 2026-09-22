@@ -7,6 +7,7 @@ import { getBlogPost } from "@/lib/notion-blog";
 import WhatsAppCta from "@/components/WhatsAppCta";
 import BlogBlocks from "@/components/BlogBlocks";
 import { hasBlogReviews } from "@/lib/blog-shortcodes";
+import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 type Props = { params: Promise<{ slug: string }> };
@@ -52,7 +53,19 @@ export default async function Article({ params }: Props) {
           })}
         </time>
       )}
-      {p.cover && <img src={p.cover} alt="" className="article-cover" />}
+      {p.cover && (
+        <div className="article-cover-wrap">
+          <Image
+            src={p.cover}
+            alt=""
+            fill
+            sizes="(max-width: 820px) calc(100vw - 40px), 780px"
+            quality={70}
+            preload
+            className="article-cover"
+          />
+        </div>
+      )}
       <BlogBlocks blocks={p.blocks} />
       {!hasBlogReviews(p.blocks) && <BlogBlocks blocks={[{ type: "reviews" }]} />}
       <div className="mt-12 border-t pt-8">

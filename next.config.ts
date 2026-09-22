@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
+        pathname: "/**",
+      },
+    ],
+    formats: ["image/webp"],
+    qualities: [70],
+    minimumCacheTTL: 3600,
+  },
   // We issue an explicit 301 for every trailing-slash variant ourselves
   // (see scripts/redirect-map.mjs) — without this, Next's own trailing-slash
   // handling fires first and returns a 308 before our rule ever runs.

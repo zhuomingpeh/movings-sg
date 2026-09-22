@@ -2,6 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getBlogPosts } from "@/lib/notion-blog";
+import Image from "next/image";
 export const metadata: Metadata = pageMetadata("Moving Blog Singapore | Moving Solutions", "Moving advice, packing tips and storage guides from Moving Solutions in Singapore.", "/blog");
 export default async function Blog() {
   const posts = await getBlogPosts();
@@ -17,10 +18,20 @@ export default async function Blog() {
         home.
       </p>
       <div className="blog-grid">
-        {posts.map((p) => (
+        {posts.map((p, index) => (
           <Link href={`/blog/${p.slug}`} className="blog-card" key={p.id}>
             {p.cover && (
-              <img src={p.cover} alt="" loading="lazy" className="blog-cover" />
+              <span className="blog-cover-wrap">
+                <Image
+                  src={p.cover}
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 900px) 50vw, 33vw"
+                  quality={70}
+                  preload={index === 0}
+                  className="blog-cover"
+                />
+              </span>
             )}
             <div className="blog-card-copy">
               <p className="eyebrow">{p.category && p.category !== "Uncategorized" ? p.category : "Moving advice"}</p>

@@ -1055,9 +1055,14 @@ article h1 {
 .blog-card:hover {
   transform: translateY(-3px);
 }
-.blog-cover {
+.blog-cover-wrap {
+  position: relative;
+  display: block;
   width: 100%;
   aspect-ratio: 1.65;
+  overflow: hidden;
+}
+.blog-cover {
   object-fit: cover;
 }
 .blog-card-copy {
@@ -1096,13 +1101,15 @@ article h1 {
   color: #536780;
   font-size: 13px;
 }
-.article-cover {
+.article-cover-wrap {
+  position: relative;
   width: 100%;
-  max-height: 480px;
-  object-fit: cover;
+  aspect-ratio: 1.65;
   border-radius: 8px;
+  overflow: hidden;
   margin: 30px 0;
 }
+.article-cover { object-fit: cover; }
 .blog-body {
   margin-top: 32px;
   overflow-wrap: anywhere;
